@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer 0 infinity </title>
+    <style>
+        .timer {
+            width: 250px;
+            margin: 0 auto;
+        }
+        .timer p{
+            text-align: center;
+            font-size: 25px;
+        }
+       .timer button {
+            display: block;
+            width: 180px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer">
+        <p id="timer_field">0</p>
+        <button id="timer_btn" onclick="setTimer();">Нажмите на меня!</button>
+    </div>
+    <script>
+       
+        function setTimer(){
+          var timerId = setInterval(function(){
+              var t = parseInt(document.getElementById("timer_field").innerHTML);
+              t++;
+              document.getElementById("timer_field").innerHTML = t;
+           }, 500);
+      }
+        
+    
+    </script>
+</body>
+</html>

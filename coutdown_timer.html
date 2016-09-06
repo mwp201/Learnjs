@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пример таймера</title>
+    <style>
+        .timer {
+            width: 250px;
+            margin: 0 auto;
+        }
+        .timer p{
+            text-align: center;
+        }
+        p:first-child {
+            font-size: 25px;
+            margin-bottom: 0;
+        }
+        #timer_hidden_text {
+            visibility: hidden;
+        }
+        .timer button {
+            display: block;
+            width: 180px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer">
+        <p id="timer_field">10</p>
+        <p id="timer_hidden_text">Обратный отсчет завершен.</p>
+        <button id="timer_btn" onclick="setTimer();">Запустить таймер!</button>
+    </div>
+    <script>
+       
+        function setTimer(){
+          var timerId = setInterval(function(){
+              document.getElementById("timer_field").innerHTML -= 1;
+              document.getElementById("timer_btn").disabled = true
+          }, 400);
+     
+         setTimeout(function(){
+             clearInterval(timerId); 
+             document.getElementById("timer_hidden_text").style = "visibility: visible;"
+            }, 4400);
+      }
+        
+    
+    </script>
+</body>
+</html>
