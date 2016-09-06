@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Timer start stop</title>
+    <style>
+        .timer {
+            width: 370px;
+            margin: 0 auto;
+        }
+        
+        .timer p {
+            text-align: center;
+            font-size: 25px;
+        }
+        
+        .timer button {
+            display: inline-block;
+            width: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timer">
+        <p id="timer_field">0</p>
+        <button id="timer_btn_start" onclick="setTimer();">Запустить таймер!</button>
+        <button id="timer_btn_stop" onclick="stopTimer();" disabled>Остановить таймер!</button>
+    </div>
+    <script>
+        function setTimer() {
+            window.timerId = setInterval(function () {
+                var t = parseInt(document.getElementById("timer_field").innerHTML);
+                t++;
+                document.getElementById("timer_field").innerHTML = t;
+            }, 500);
+            document.getElementById("timer_btn_start").disabled = true;
+            document.getElementById("timer_btn_stop").disabled = false;
+           }
+        
+        function stopTimer() {
+            clearInterval(window.timerId);
+            document.getElementById("timer_btn_start").disabled = false;
+            document.getElementById("timer_btn_stop").disabled = true;
+        }
+    </script>
+</body>
+
+</html>
