@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пример слайдера 1</title>
+    <style>
+        .slider {
+            width: 250px;
+            margin: 50px auto;
+        }
+        .timer p{
+            text-align: center;
+        }
+        p:first-child {
+            font-size: 25px;
+            margin-bottom: 0;
+        }
+        #timer_hidden_text {
+            visibility: hidden;
+        }
+        .timer button {
+            display: block;
+            width: 180px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <img id="slider_item" src="img/auto1.jpg" width="160" height="120" alt="">
+    </div>
+    <script>
+        
+        
+             function timer(){
+              var i = 1;
+               while(i<3){
+	            document.getElementById("slider_item").src = "img/auto"+1+".jpg" ;
+                   i++;
+               }
+		        window.setTimeout(timer, 1000); //рекурсия
+            
+         }
+   
+       timer();      
+       
+     
+    </script>
+</body>
+</html>
