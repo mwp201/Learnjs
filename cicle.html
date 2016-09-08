@@ -73,7 +73,7 @@
                 arr.push(i);
             }
         }
-        alert(arr);
+        //alert(arr);
 
         //8. Дан массив с числами. С помощью цикла выведите только те элементы массива, которые больше нуля и меньше 10-ти.
         var arr = [1, 2, 6, 15, 28, 0, 33, 2, 8, 10];
@@ -239,7 +239,6 @@
             document.write(a + '<br>');
         }
 
-
         //19. Нарисуйте ёлочку с помощью document.write, как показано на рисунке, только ваша ёлочка должна быть до девятки:
         for (var i = 1; i < 10; i++) {
             var result = '';
@@ -272,6 +271,67 @@
 
 
         //22. Выведите на экран первые 20 штук чисел Фибоначчи.
+        var a = 1;
+        var b = 1;
+        for (var i = 3; i <= 20; i++) {
+            var c = a + b;
+            a = b;
+            b = c;
+            document.write(c + '<br>');
+        }
+
+        //23. Дана строка. Сделайте заглавным первый символ этой строки не используя цикл. Найдите два решения.
+        var str = 'abcde';
+        str = str[0].toUpperCase() + str.substr(1);
+        document.write(str + '<br>');
+
+
+        //24. Дана строка. Сделайте заглавным последний символ этой строки не используя цикл. Найдите два решения.
+        var str = 'abcdefg';
+        str = str.substr(0, str.length - 1) + str[str.length - 1].toUpperCase();
+        document.write(str + '<br>');
+
+        //25. Дана строка, например, '123456'. Переверните эту строку (сделайте из нее '654321') не используя цикл.
+        var str = '12345678910';
+        str = str.split('').reverse().join('');
+        document.write(str + '<br>');
+
+        //26. Дано число, например, 3751. Отсортируйте цифры в нем (сделайте из него 1357) не используя цикл.
+        var str = '51826';
+        str = str.split('').sort().join('');
+        document.write(str + '<br>');
+
+        //27. Дана строка. Сделайте заглавным первый символ каждого слова этой строки.
+
+        var str = 'строка у которой все первые буквы большие';
+        str = str + 'x'.trim();
+        var spice = 0;
+        for (var i = 0; i < str.length; i++) {
+            var symbol = str[i];
+            if (symbol == ' ') {
+                spice++;
+            }
+        }
+        var word = spice + 1;
+        var pos_spice = 0;
+        for (var j = 0; j < word; j++) {
+            pos_spice = str.indexOf(' ', 0); 
+            console.log('pos_spice = ' + pos_spice)
+            var new_str = str[0].toUpperCase() + str.slice(1, pos_spice) + ' '; 
+            str = str.slice(new_str.length); 
+            document.write(new_str);
+
+        }
+       
+
+
+
+
+        //28. Дана строка. Сделайте заглавным последний символ каждого слова этой строки. 
+
+        //29. Дана строка. Сделайте заглавным каждый четный символ этой строки.
+
+        //30. Дана строка вида 'var_text_hello'. Сделайте из него текст 'varTextHello'.
     </script>
 </body>
 
