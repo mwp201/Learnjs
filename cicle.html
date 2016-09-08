@@ -302,7 +302,7 @@
         document.write(str + '<br>');
 
         //27. Дана строка. Сделайте заглавным первый символ каждого слова этой строки.
-
+        //тут приходится добавлять лишний символ в конце строки потому что метод slice(1, pos_spice) при равном -1 отрезает последнюю букву последнего слова
         var str = 'строка у которой все первые буквы большие';
         str = str + 'x'.trim();
         var spice = 0;
@@ -315,19 +315,48 @@
         var word = spice + 1;
         var pos_spice = 0;
         for (var j = 0; j < word; j++) {
-            pos_spice = str.indexOf(' ', 0); 
-            console.log('pos_spice = ' + pos_spice)
-            var new_str = str[0].toUpperCase() + str.slice(1, pos_spice) + ' '; 
-            str = str.slice(new_str.length); 
+            pos_spice = str.indexOf(' ', 0);
+            var new_str = str[0].toUpperCase() + str.slice(1, pos_spice) + ' ';
+            str = str.slice(new_str.length);
             document.write(new_str);
 
         }
-       
+        //более простой вариант
+        var str = 'строка у которой все все все первые буквы очень большие';
+
+        function convertString(str) {
+            var nstr = '0';
+            arr = str.split(' '); //строка,у,которой,все,первые,буквы,большие
+            arr.forEach(function (item) {
+                //var nstr = String(item);
+                var nstr = item[0].toUpperCase() + item.substr(1) + ' ';
+                //alert(nstr);
+                //return nstr;
+            })
+            return nstr;
+        }
+
+        alert(convertString(str));
 
 
+        var str = 'строка у которой все все все последние буквы очень большие';
+        arr = str.split(' ');
+        arr.forEach(function (item) {
+            res = item.substr(0, item.length - 1) + item[item.length - 1].toUpperCase() + ' ';
+            document.write(res);
+        })
 
 
         //28. Дана строка. Сделайте заглавным последний символ каждого слова этой строки. 
+
+        var str = 'строка у которой все все все последние буквы очень большие';
+        str = str.split(' ');
+        str.forEach(function (item, k, str) {
+            str = String(str[k]);
+            str = str.substr(0, str.length - 1) + str[str.length - 1].toUpperCase() + ' ';
+            document.write(str);
+        })
+
 
         //29. Дана строка. Сделайте заглавным каждый четный символ этой строки.
 
