@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Циклы</title>
+    <style>
+        #clock {
+            width: 200px;
+            margin: 50px auto;
+            font-size: 45px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock">
+        <p id="clock_display"></p>
+    </div>
+    <script>
+        //23. Дана строка. Сделайте заглавным первый символ этой строки не используя цикл. Найдите два решения.
+        var str = 'abcde';
+        str = str[0].toUpperCase() + str.substr(1);
+        document.write(str + '<br>');
+
+
+        //24. Дана строка. Сделайте заглавным последний символ этой строки не используя цикл. Найдите два решения.
+        var str = 'abcdefg';
+        str = str.substr(0, str.length - 1) + str[str.length - 1].toUpperCase();
+        document.write(str + '<br>');
+
+        //25. Дана строка, например, '123456'. Переверните эту строку (сделайте из нее '654321') не используя цикл.
+        var str = '12345678910';
+        str = str.split('').reverse().join('');
+        document.write(str + '<br>');
+
+        //26. Дано число, например, 3751. Отсортируйте цифры в нем (сделайте из него 1357) не используя цикл.
+        var str = '51826';
+        str = str.split('').sort().join('');
+        document.write(str + '<br>');
+
+        //27. Дана строка. Сделайте заглавным первый символ каждого слова этой строки.
+        /*
+        //тут приходится добавлять лишний символ в конце строки потому что метод slice(1, pos_spice) при равном -1 отрезает последнюю букву последнего слова
+        //так наверное лучше не делать, но пока оставлю
+       
+        var str = 'строка у которой все первые буквы большие';
+        str = str + 'x'.trim();
+        var spice = 0;
+        for (var i = 0; i < str.length; i++) {
+            var symbol = str[i];
+            if (symbol == ' ') {
+                spice++;
+            }
+        }
+        var word = spice + 1;
+        var pos_spice = 0;
+        for (var j = 0; j < word; j++) {
+            pos_spice = str.indexOf(' ', 0);
+            var new_str = str[0].toUpperCase() + str.slice(1, pos_spice) + ' ';
+            str = str.slice(new_str.length);
+            document.write(new_str);
+
+        }*/
+
+
+        //более простой и лучший вариант, все работает олично
+        function capitalizeFirstLetter(str, durak) {
+            if (durak === undefined) {
+                durak = ' - дурак';
+            }
+            var result = '';
+            var arr = str.split(' '); //преобразуем строкау в массив
+            arr.forEach(function (item) {
+                item = item[0].toUpperCase() + item.substr(1) + ' ';
+                result += item;
+            })
+            return result + durak;
+        }
+        /*
+                var str = 'иванов иван иванович';
+                alert(capitalizeFirstLetter(str));
+                str = 'гассан абдурахман ибн хаттаб хаттабыч';
+                alert(capitalizeFirstLetter(str, 'не русский'));
+                var ssss = capitalizeFirstLetter(str, 'mudak');
+                alert(ssss);
+        */
+
+        //28. Дана строка. Сделайте заглавным последний символ каждого слова этой строки. 
+
+        var str = 'строка у которой все все все последние буквы очень большие';
+        var result = '';
+        var arr = str.split(' ');
+        arr.forEach(function (item) {
+            item = item.substr(0, item.length - 1) + item[item.length - 1].toUpperCase() + ' ';
+            result += item;
+        })
+        document.write(result + '<br>');
+
+        //то же самое но только в функции проверено, работает
+        function capitalizeLastLetter(str) {
+            var result = '';
+            var arr = str.split(' ');
+            arr.forEach(function (item) {
+                item = item.substr(0, item.length - 1) + item[item.length - 1].toUpperCase() + ' ';
+                result += item;
+            })
+            return result;
+        }
+
+        /*
+        var str = 'иванов иван иванович';
+        alert(capitalizeLastLetter(str));
+        str = 'гассан абдурахман ибн хаттаб хаттабыч';
+        alert(capitalizeLastLetter(str));
+      */
+
+
+        //29. Дана строка. Сделайте заглавным каждый четный символ этой строки.
+
+        function capitalizeEvenLetter(str) {
+            var result = [];
+            var arr = str.split('');
+            arr.forEach(function (item, i) {
+                if (i % 2 == 0) {
+                    item = item.toUpperCase();
+                    arr.splice(i, 1, item);
+                    result = arr.slice(0).join('');
+                }
+            })
+            return result;
+        }
+
+        //ну и конечно метод покороче
+        function capitalizeEvenLetter(str) {
+            var arr = str.split('');
+            arr.forEach(function (item, i) {
+                if (i % 2 == 0) {
+                    arr[i] = item.toUpperCase();
+                }
+            })
+            return arr.join('');;
+        }
+        /*
+        var str = 'иванов петр сидорович';
+        var primer = capitalizeEvenLetter(str);
+        console.log('результат работы = ' + primer)
+*/
+
+        //30. Дана строка вида 'var_text_hello'. Сделайте из него текст 'varTextHello'.
+        function convertString(str) {
+            var result = '';
+            var arr = str.split('_');
+            var first = arr.splice(0, 1);
+            arr = arr.splice(0);
+            arr.forEach(function (item) {
+                item = item[0].toUpperCase() + item.substr(1);
+                result += item;
+            })
+            return first + result;
+        }
+
+        var str = 'var_text_hello';
+        var primer = convertString(str);
+        console.log('результат работы = ' + primer);
+        
+    </script>
+</body>
+
+</html>
