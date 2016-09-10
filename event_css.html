@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>События и CSS</title>
+    <style>
+        .timer {
+            width: 300px;
+            margin: 20px auto;
+            border: 1px solid #000;
+        }
+        
+        .timer p {
+            text-align: center;
+            font-size: 15px;
+        }
+        
+        .timer button {
+            display: block;
+            /*            width: 180px;*/
+            margin: 20px auto;
+        }
+        
+        .timer textarea {
+            border: 1px solid red;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        .timer input[type='text'],
+        .timer input[type='submit'] {
+            display: inline-block;
+            margin: 20px;
+        }
+        
+        .timer input[type='submit'] {
+            width: 250px;
+        }
+        
+        .timer img {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timer">
+        <button onclick="alert('Привет!');">Нажми на меня!</button>
+    </div>
+    <div class="timer">
+        <button onmouseover="alert('Привет!');">Наведи на меня!</button>
+    </div>
+    <div class="timer">
+        <button ondblclick="alert('Привет!');">Двойной щелчок по мне!</button>
+    </div>
+    <div class="timer">
+        <textarea name="" id="" cols="35" rows="10" onmouseout="alert('Привет!'); ">Наведи на меня мышь - а потом убери!</textarea>
+    </div>
+    <div class="timer">
+        <input type="text" name="" id="text_input1" value="Ку-ку">
+        <button onclick="copyText();">Нажми на меня!</button>
+    </div>
+    <div class="timer">
+        <input type="text" name="" id="text_input2" value="Ку-ку">
+        <button onclick="changeText();">Нажми на меня!</button>
+    </div>
+    <div class="timer">
+        <img src="img/auto1.jpg" alt="" id="img">
+        <button onclick="changeImg();">Нажми на меня!</button>
+    </div>
+    <!--  this  -->
+    <div class="timer">
+        <input type="text" name="" onclick="valueAlert(this)" value="Нажми на меня!">
+    </div>
+    <div class="timer">
+        <input type="text" name="" onclick="valueChange(this)" value="Нажми на меня!">
+    </div>
+    <div class="timer">
+        <input type="text" name="" onclick="valueChange(this);" onblur="valueChangeText(this);" value="Нажми на меня!">
+    </div>
+    <div class="timer">
+        <p>Это input type="submit".</p>
+        <input type="submit" name="" onclick="valueChangeSubmit(this);" value="Нажми на меня!">
+    </div>
+    <div class="timer">
+        <p>Это input type="submit".</p>
+        <input type="submit" name="" onclick="changeSubmit(this);" value="Нажми на меня!">
+    </div>
+    <div class="timer">
+        <img src="img/auto3.jpg" alt="" onmouseover="changeImgSrc(this);" onmouseout="changeImgSrcBack(this);">
+    </div>
+    <!--  css  -->
+    <div class="timer">
+        <input type="text" name="" id="text_input3" value="Ку-ку">
+        <button onclick="changeTextColor();">Нажми на меня!</button>
+    </div>
+    <script>
+        function copyText() {
+            var txt = document.getElementById('text_input1').value;
+            alert(txt);
+        }
+
+        function changeText() {
+            var txt = document.getElementById('text_input2');
+            txt.value = 'Ой, я поменял свой текст!';
+        }
+
+        function changeImg() {
+            var txt = document.getElementById('img');
+            img.src = 'img/auto2.jpg';
+        }
+        //this---------------------------------------------------    
+        function valueAlert(elem) {
+            alert(elem.value);
+        }
+
+        function valueChange(elem) {
+            elem.value = 'Ой, я поменял свой текст!';
+        }
+
+        function valueChangeText(elem) {
+            elem.value = 'Ой, а теперь еще раз поменял!';
+        }
+
+        function valueChangeSubmit(elem) {
+            elem.value = 'Ку-ку';
+        }
+
+        function changeSubmit(elem) {
+            elem.value = 'Ой, теперь на меня больше не нажать!';
+            elem.disabled = 'true';
+        }
+
+        function changeImgSrc(elem) {
+            elem.src = 'img/auto4.jpg';
+        }
+
+        function changeImgSrcBack(elem) {
+            elem.src = 'img/auto3.jpg';
+        }
+        //css-----------------------------------------------------
+        function changeTextColor() {
+            var txt = document.getElementById('text_input3');
+            txt.style.color = 'red';
+            txt.style.width = '250px';
+        }
+    </script>
+</body>
+
+</html>
