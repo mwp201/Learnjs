@@ -95,6 +95,16 @@
         <input type="text" name="" id="text_input3" value="Ку-ку">
         <button onclick="changeTextColor();">Нажми на меня!</button>
     </div>
+    <div class="timer">
+        <input type="text" name="" id="text_input4" value="Ку-ку">
+        <button onclick="hiddenField();">Нажми на меня!</button>
+        <button onclick="showField();">Нажми потом на меня!</button>
+    </div>
+    <!--  задачи  -->
+    <div class="timer">
+        <input type="text" name="" id="text_input5" value="Ку-ку">
+        <button onclick="css();">Нажми на меня!</button>
+    </div>
     <script>
         function copyText() {
             var txt = document.getElementById('text_input1').value;
@@ -145,6 +155,30 @@
             txt.style.color = 'red';
             txt.style.width = '250px';
         }
+        var txt = document.getElementById('text_input4');
+
+        function hiddenField() {
+            txt.style.display = 'none';
+        }
+
+        function showField() {
+            txt.style.display = 'block';
+        }
+
+        function css() {
+            var txt = document.getElementById('text_input5');
+            txt.value = 'Ой, я поменял свой текст и css!'
+            txt.style.paddingTop = '15px';
+            txt.style.paddingBottom = '15px';
+            txt.style.color = 'red';
+            txt.style.width = '250px';
+            txt.style.borderTop = '2px solid grey';
+            txt.style.borderRight = '2px solid lightgrey';
+            txt.style.borderBottom = '2px solid lightgrey';
+            txt.style.borderLeft = '2px solid grey';
+            txt.style.borderRadius = '10px';
+        }
+        //задачи-----------------------------------------------------
     </script>
 </body>
 
