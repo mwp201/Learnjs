@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>События и CSS</title>
     <style>
-        .timer {
+        .timer,
+        .calculator {
             width: 300px;
             margin: 20px auto;
             border: 1px solid #000;
@@ -18,7 +19,6 @@
         
         .timer button {
             display: block;
-            /*            width: 180px;*/
             margin: 20px auto;
         }
         
@@ -45,75 +45,225 @@
         #second_btn {
             display: none;
         }
+        
+        #text_input14 {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+        }
+        
+        .calculator button {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+        }
+        
+        .calculator button:last-child {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
 <body>
+    <!-- №1  -->
     <div class="timer">
         <button onclick="alert('Привет!');">Нажми на меня!</button>
     </div>
+    <!--    -->
+
+    <!-- №2  -->
     <div class="timer">
         <button onmouseover="alert('Привет!');">Наведи на меня!</button>
     </div>
+    <!--    -->
+
+    <!-- №3  -->
     <div class="timer">
         <button ondblclick="alert('Привет!');">Двойной щелчок по мне!</button>
     </div>
+    <!--    -->
+
+    <!-- №4  -->
     <div class="timer">
         <textarea name="" id="" cols="35" rows="10" onmouseout="alert('Привет!'); ">Наведи на меня мышь - а потом убери!</textarea>
     </div>
+    <!--    -->
+
+    <!-- №5  -->
     <div class="timer">
         <input type="text" name="" id="text_input1" value="Ку-ку">
         <button onclick="copyText();">Нажми на меня!</button>
     </div>
+    <script>
+        function copyText() {
+            var txt = document.getElementById('text_input1').value;
+            alert(txt);
+        }
+    </script>
+    <!--    -->
+
+    <!-- №6  -->
     <div class="timer">
         <input type="text" name="" id="text_input2" value="Ку-ку">
         <button onclick="changeText();">Нажми на меня!</button>
     </div>
+    <script>
+        function changeText() {
+            var txt = document.getElementById('text_input2');
+            txt.value = 'Ой, я поменял свой текст!';
+        }
+    </script>
+    <!--    -->
+
+    <!-- №7  -->
     <div class="timer">
         <img src="img/auto1.jpg" alt="" id="img">
         <button onclick="changeImg();">Нажми на меня!</button>
     </div>
+    <script>
+        function changeImg() {
+            var txt = document.getElementById('img');
+            img.src = 'img/auto2.jpg';
+        }
+    </script>
+    <!--    -->
+
     <!--  this  -->
+    <!-- №8  -->
     <div class="timer">
         <input type="text" name="" onclick="valueAlert(this)" value="Нажми на меня!">
     </div>
+    <script>
+        function valueAlert(elem) {
+            alert(elem.value);
+        }
+    </script>
+    <!--    -->
+
+    <!-- №9  -->
     <div class="timer">
         <input type="text" name="" onclick="valueChange(this)" value="Нажми на меня!">
     </div>
+    <script>
+        function valueChange(elem) {
+            elem.value = 'Ой, я поменял свой текст!';
+        }
+    </script>
+    <!--    -->
+
+    <!-- №10  -->
     <div class="timer">
         <input type="text" name="" onclick="valueChange(this);" onblur="valueChangeText(this);" value="Нажми на меня!">
     </div>
+    <script>
+        function valueChangeText(elem) {
+            elem.value = 'Ой, а теперь еще раз поменял!';
+        }
+    </script>
+    <!--    -->
+
+    <!-- №11  -->
     <div class="timer">
         <p>Это input type="submit".</p>
         <input type="submit" name="" onclick="valueChangeSubmit(this);" value="Нажми на меня!">
     </div>
+    <script>
+        function valueChangeSubmit(elem) {
+            elem.value = 'Ку-ку';
+        }
+    </script>
+    <!--    -->
+
+    <!-- №12  -->
     <div class="timer">
         <p>Это input type="submit".</p>
         <input type="submit" name="" onclick="changeSubmit(this);" value="Нажми на меня!">
     </div>
+    <script>
+        function changeSubmit(elem) {
+            elem.value = 'Ой, теперь на меня больше не нажать!';
+            elem.disabled = 'true';
+        }
+    </script>
+    <!--    -->
+
+    <!-- №13  -->
     <div class="timer">
         <img src="img/auto3.jpg" alt="" onmouseover="changeImgSrc(this);" onmouseout="changeImgSrcBack(this);">
     </div>
+    <script>
+        function changeImgSrc(elem) {
+            elem.src = 'img/auto4.jpg';
+        }
+
+        function changeImgSrcBack(elem) {
+            elem.src = 'img/auto3.jpg';
+        }
+    </script>
+    <!--    -->
+
     <!--  css  -->
+    <!-- №14  -->
     <div class="timer">
         <input type="text" name="" id="text_input3" value="Ку-ку">
         <button onclick="changeTextColor();">Нажми на меня!</button>
     </div>
+    <script>
+        function changeTextColor() {
+            var txt = document.getElementById('text_input3');
+            txt.style.color = 'red';
+            txt.style.width = '250px';
+        }
+    </script>
+    <!--    -->
+
+    <!-- №15  -->
     <div class="timer">
         <input type="text" name="" id="text_input4" value="Ку-ку">
         <button onclick="hiddenField();">Нажми на меня!</button>
         <button onclick="showField();">Нажми потом на меня!</button>
     </div>
+    <script>
+        var txt = document.getElementById('text_input4');
+
+        function hiddenField() {
+            txt.style.display = 'none';
+        }
+
+        function showField() {
+            txt.style.display = 'block';
+        }
+    </script>
+    <!--    -->
 
     <!--  задачи  -->
+    <!-- №16  -->
     <div class="timer">
         <input type="text" name="" id="text_input5" value="Ку-ку">
         <button onclick="css();">Нажми на меня!</button>
     </div>
+    <script>
+        function css() {
+            var txt = document.getElementById('text_input5');
+            txt.value = 'Ой, я поменял свой текст и css!'
+            txt.style.paddingTop = '15px';
+            txt.style.paddingBottom = '15px';
+            txt.style.color = 'red';
+            txt.style.width = '250px';
+            txt.style.borderTop = '2px solid grey';
+            txt.style.borderRight = '2px solid lightgrey';
+            txt.style.borderBottom = '2px solid lightgrey';
+            txt.style.borderLeft = '2px solid grey';
+            txt.style.borderRadius = '10px';
+        }
+    </script>
+    <!--    -->
+
+    <!-- №17  -->
     <div class="timer">
         <p>Это input type="submit".</p>
         <input type="submit" name="" id="first_btn" onclick="addBtn(this);" value="Нажми на меня!">
-        <input type="submit" name="" id="second_btn" onclick="unblockBtn(this);" value="">
+        <input type="submit" name="" id="second_btn" onclick="unlockBtn(this);" value="">
     </div>
     <script>
         function addBtn(elem) {
@@ -124,13 +274,16 @@
             second_btn.value = 'Нажми чтобы отблокировать элемент';
         }
 
-        function unblockBtn(elem) {
+        function unlockBtn(elem) {
             var first_btn = document.getElementById('first_btn');
             first_btn.disabled = false;
             first_btn.value = 'О, на меня снова можно нажимать!'
             elem.style.display = 'none';
         }
     </script>
+    <!--    -->
+
+    <!-- №18  -->
     <div class="timer">
         <button onclick="pressBtn(this);" style="width:250px;">0</button>
     </div>
@@ -141,6 +294,8 @@
             elem.innerHTML = elem.value;
         }
     </script>
+    <!--    -->
+
     <!--  №19  -->
     <div class="timer">
         <input type="text" name="" id="text_input6" value="Ку-ку">
@@ -154,6 +309,7 @@
         }
     </script>
     <!--    -->
+
     <!--  №20  -->
     <div class="timer">
         <input type="text" name="" id="text_input7" value="Ку-ку" class="eee www ddd">
@@ -166,6 +322,7 @@
         }
     </script>
     <!--    -->
+
     <!--  №21  -->
     <div class="timer">
         <input type="text" name="" id="text_input8" value="Привет!">
@@ -190,6 +347,7 @@
         }
     </script>
     <!--   -->
+
     <!--  №22  -->
     <div class="timer">
         <input type="text" name="" id="text_input10" placeholder="Введите число!">
@@ -205,6 +363,7 @@
         }
     </script>
     <!--   -->
+
     <!--  №23  -->
     <div class="timer">
         <input type="text" name="" id="text_input12" placeholder="Введите число!">
@@ -224,6 +383,7 @@
         }
     </script>
     <!--   -->
+
     <!--  №24  -->
     <div class="timer">
         <button onclick="btnLock(this);">Нажми на меня!</button>
@@ -235,80 +395,34 @@
         }
     </script>
     <!--   -->
+
+    <!--  №25  -->
+    <div class="calculator">
+        <input type="text" name="" id="text_input14">
+        <button onclick="calc(this);" value="+">Я дабавлю +</button>
+        <button onclick="calc(this);" value="-">Я дабавлю -</button>
+        <button onclick="calc(this);" value="/">Я дабавлю /</button>
+        <button onclick="calc(this);" value="*">Я дабавлю *</button>
+        <br>
+        <button onclick="calc(this);" value="1">1</button>
+        <button onclick="calc(this);" value="2">2</button>
+        <button onclick="calc(this);" value="3">3</button>
+        <button onclick="calc(this);" value="4">4</button>
+        <button onclick="calc(this);" value="5">5</button>
+        <button onclick="calc(this);" value="6">6</button>
+        <button onclick="calc(this);" value="7">7</button>
+        <button onclick="calc(this);" value="8">8</button>
+        <button onclick="calc(this);" value="9">9</button>
+        <button onclick="calc(this);" value="0">0</button>
+    </div>
     <script>
-        function copyText() {
-            var txt = document.getElementById('text_input1').value;
-            alert(txt);
-        }
-
-        function changeText() {
-            var txt = document.getElementById('text_input2');
-            txt.value = 'Ой, я поменял свой текст!';
-        }
-
-        function changeImg() {
-            var txt = document.getElementById('img');
-            img.src = 'img/auto2.jpg';
-        }
-        //this---------------------------------------------------    
-        function valueAlert(elem) {
-            alert(elem.value);
-        }
-
-        function valueChange(elem) {
-            elem.value = 'Ой, я поменял свой текст!';
-        }
-
-        function valueChangeText(elem) {
-            elem.value = 'Ой, а теперь еще раз поменял!';
-        }
-
-        function valueChangeSubmit(elem) {
-            elem.value = 'Ку-ку';
-        }
-
-        function changeSubmit(elem) {
-            elem.value = 'Ой, теперь на меня больше не нажать!';
-            elem.disabled = 'true';
-        }
-
-        function changeImgSrc(elem) {
-            elem.src = 'img/auto4.jpg';
-        }
-
-        function changeImgSrcBack(elem) {
-            elem.src = 'img/auto3.jpg';
-        }
-        //css-----------------------------------------------------
-        function changeTextColor() {
-            var txt = document.getElementById('text_input3');
-            txt.style.color = 'red';
-            txt.style.width = '250px';
-        }
-        var txt = document.getElementById('text_input4');
-
-        function hiddenField() {
-            txt.style.display = 'none';
-        }
-
-        function showField() {
-            txt.style.display = 'block';
-        }
-        //задачи-----------------------------------------------------
-        function css() {
-            var txt = document.getElementById('text_input5');
-            txt.value = 'Ой, я поменял свой текст и css!'
-            txt.style.paddingTop = '15px';
-            txt.style.paddingBottom = '15px';
-            txt.style.color = 'red';
-            txt.style.width = '250px';
-            txt.style.borderTop = '2px solid grey';
-            txt.style.borderRight = '2px solid lightgrey';
-            txt.style.borderBottom = '2px solid lightgrey';
-            txt.style.borderLeft = '2px solid grey';
-            txt.style.borderRadius = '10px';
+        function calc(elem) {
+            var txt_field = document.getElementById('text_input14');
+            var znak = elem.value;
+            text_input14.value += elem.value;
         }
     </script>
+    <!--   -->
 </body>
 
 </html>
