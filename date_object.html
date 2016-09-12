@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Работа с датой</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!--    <input type="text" name="" id="">-->
+    <!--    http://theory.phphtml.net/tasks/javascript/base/zadachi-na-rabotu-s-datami-v-javascript.html -->
+
+    <script>
+        var date = new Date();
+        var week_day = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+        var months = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+        //1. 6.
+        document.write('Сегодня ' + week_day[date.getDay()] + '<br>');
+        //2. 
+        document.write('Сейчас ' + months[date.getMonth()] + ' месяц' + '<br>');
+        //3. 
+        document.write('Сейчас ' + date.getFullYear() + ' год' + '<br>');
+        //4. 
+        document.write(addZero(date.getHours()) + ':' + addZero(date.getMinutes()) + ':' + addZero(date.getSeconds()) + ' ' + addZero(date.getDate()) + '.' + addZero(parseInt(date.getMonth()) + 1) + '.' + date.getFullYear() + '<br>');
+
+        function addZero(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        //5.
+        document.write('Сегодня ' + date.getDay() + ' день недели' + '<br>');
+        // 7.
+        date = new Date(2015, 0, 7)
+        document.write('7 января 2015 был ' + date.getDay() + ' день недели' + '<br>'); //3
+        //8.
+        date = new Date();
+        document.write('С 1 января 1970г. до настоящего момента времени прошло ' + date.getTime() / 1000 / 60 + ' минут' + '<br>');
+        //9.
+        document.write('С 1 марта 1988г. до настоящего момента времени прошло ' + (date.getTime() - Date.parse('1988-03-1')) / 1000 + ' секунд' + '<br>');
+        //10.
+        var start = new Date(2016, 08, 12, 00, 00, 00);
+        document.write('С начала дня до настоящего момента времени прошло ' + (date.getTime() - start.getTime()) / 1000 + ' секунд' + '<br>');
+    </script>
+
+</body>
+
+</html>
