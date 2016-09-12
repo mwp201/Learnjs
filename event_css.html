@@ -325,25 +325,17 @@
 
     <!--  №21  -->
     <div class="timer">
-        <input type="text" name="" id="text_input8" value="Привет!">
-        <input type="text" name="" id="text_input9" value="Пока!">
-        <button id="btn" onclick="changeValueText();" value='0'>Нажми на меня!</button>
+        <input type="text" name="" id="text_input8" value='Привет!'>
+        <input type="text" name="" id="text_input9" value='Пока!'>
+        <button id="btn" onclick="changeValueText();">Нажми на меня!</button>
     </div>
     <script>
         function changeValueText() {
             var val1 = document.getElementById('text_input8');
             var val2 = document.getElementById('text_input9');
-            var btn = document.getElementById('btn');
-            btn.value = Number(btn.value);
-
-            if (btn.value % 2 == 0) {
-                val1.value = 'Пока!';
-                val2.value = 'Привет!';
-            } else {
-                val1.value = 'Привет!';
-                val2.value = 'Пока!';
-            }
-            btn.value++;
+            var val3 = val1.value
+            val1.value = val2.value;
+            val2.value = val3;
         }
     </script>
     <!--   -->
