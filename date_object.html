@@ -23,9 +23,100 @@
         }
     </script>
     <!--    -->
+
+    <!--  12.Измерьте время выполнения скрипта в миллисекундах.  -->
+    <script>
+        var time_before = new Date();
+        for (var i = 1; i <= 50; i++) {
+            console.log(i);
+        }
+        var time_after = new Date();
+        document.write('<br>' + 'Время выполнения скрипта ' + (time_after - time_before) + ' миллисекунд' + '<br>');
+    </script>
+    <!--    -->
+
+    <!--    13.	Напишите метод, которая преобразует секунды в дни, часы, минуты. Например: 10..0 секунд это 3 дня, 23 часа, 46 минут, 25 секунд.-->
+    <script>
+        function calcPeriod(num) {
+            var d = Math.floor(num / 86400); //дней
+            var h = (num - d * 86400) / 3600; //часов
+            var m = (h - Math.floor(h)) * 60;
+            var s = (m - Math.floor(m)) * 60;
+            return {
+                day: d,
+                hour: Math.floor(h),
+                minute: Math.floor(m),
+                second: Math.floor(s),
+                num_sec: num
+            };
+        }
+        var sample = calcPeriod(12500);
+        console.log(sample.num_sec + ' секунд это ' + sample.day + ' дней ' + sample.hour + ' часов ' + sample.minute + ' минут ' + sample.second + ' секунд');
+    </script>
+    <!--    -->
+
+    <!--  14.Выведите на экран количество секунд, которое осталось до конца дня.-->
+    <script>
+        var date = new Date();
+        var current_day = date.getDate();
+        var current_month = date.getMonth();
+        var current_year = date.getFullYear();
+        var end = new Date(current_year, current_month, current_day, 23, 59, 59);
+        document.write('<br>' + 'До конца дня осталось ' + Math.floor((end.getTime() - date.getTime()) / 1000) + ' секунд' + '<br>');
+    </script>
+    <!--    -->
+
+    <!-- 15.Создайте инпут, в который пользователь вводит день недели - например, вторник. -->
+    <!-- По потери фокуса выведите под инпутом сколько дней осталось до ближайшего вторника.    -->
+    <br>
+    <input type="text" name="" onchange="calcDays(this)">
+    <p id="txt2"></p>
+    <br>
+    <script>
+        function calcDays(elem) {
+            var txt = document.getElementById('txt2');
+            var date = new Date();
+            var current_week_day = date.getDay();
+            var user_day;
+            switch (elem.value) {
+            case 'понедельник':
+                user_day = 1;
+                break;
+            case 'вторник':
+                user_day = 2;
+                break;
+            case 'среда':
+                user_day = 3;
+                break;
+            case 'четверг':
+                user_day = 4;
+                break;
+            case 'пятница':
+                user_day = 5;
+                break;
+            case 'суббота':
+                user_day = 6;
+                break;
+            case 'воскресенье':
+                user_day = 7;
+                break;
+            default:
+                alert('Введено неправильное значение!');
+            }
+            console.log(current_week_day);
+
+            var res = user_day - current_week_day;
+            if(res==0){
+                res=7;
+            }
+
+            txt.innerHTML = ('До ' + elem.value + ' осталось ' + res + ' дней');
+        }
+    </script>
+    <!--   -->
+
     <!--    16.Создайте инпут, в который пользователь вводит дату своего рождения в формате '31-12'. -->
     <!--    По потери фокуса выведите под инпутом сколько дней, минут, секунд осталось до его дня рождения.-->
-
     <input type="text" name="" onchange="calcHours(this)">
     <p id="txt1"></p>
     <br>
@@ -35,13 +126,11 @@
             var start_date = Date.parse('2016-' + (elem.value.split('-').reverse().join('-')));
             var end_date = Date.parse('2016-12-31T23:59:59');
             var diff = (end_date - start_date) / 1000; //разница в секундах
-            var d = Math.floor(diff / 86400); //дней
-            var h = (diff - d * 86400) / 3600; //часов
-            var m = (h - Math.floor(h)) * 60;
-            var s = (m - Math.floor(m)) * 60;
-            txt.innerHTML = ('До дня рождения осталось ' + d + ' дней ' + Math.floor(h) + ' часов ' + Math.floor(m) + ' минут ' + Math.floor(s) + ' секунд');
+            var res = calcPeriod(diff);
+            txt.innerHTML = ('До дня рождения осталось ' + res.day + ' дней ' + res.hour + ' часов ' + res.minute + ' минут ' + res.second + ' секунд');
         }
     </script>
+    <!--    -->
 
     <script>
         var date = new Date();
@@ -73,8 +162,12 @@
         //9.
         document.write('С 1 марта 1988г. до настоящего момента времени прошло ' + (date.getTime() - Date.parse('1988-03-1')) / 1000 + ' секунд' + '<br>');
         //10.
-        var start = new Date(2016, 08, 12, 00, 00, 00);
-        document.write('С начала дня до настоящего момента времени прошло ' + (date.getTime() - start.getTime()) / 1000 + ' секунд' + '<br>');
+        var date = new Date();
+        var current_day = date.getDate();
+        var current_month = date.getMonth();
+        var current_year = date.getFullYear();
+        var start = new Date(current_year, current_month, current_day, 00, 00, 00);
+        document.write('С начала дня до настоящего момента времени прошло ' + Math.floor((date.getTime() - start.getTime()) / 1000) + ' секунд' + '<br>');
     </script>
 
 </body>
