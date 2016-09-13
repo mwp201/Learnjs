@@ -10,8 +10,38 @@
 </head>
 
 <body>
-    <!--    <input type="text" name="" id="">-->
-    <!--    http://theory.phphtml.net/tasks/javascript/base/zadachi-na-rabotu-s-datami-v-javascript.html -->
+    <!--  11 -->
+    <input type="text" name="" onchange="calcDate(this)">
+    <p id="txt"></p>
+    <br>
+    <script>
+        function calcDate(elem) {
+            var txt = document.getElementById('txt');
+            var start_date = Date.parse(elem.value);
+            var end_date = Date.parse('2016-12-31');
+            txt.innerHTML = ('До дня рождения осталось ' + (end_date - start_date) / 86400000 + ' дней');
+        }
+    </script>
+    <!--    -->
+    <!--    16.Создайте инпут, в который пользователь вводит дату своего рождения в формате '31-12'. -->
+    <!--    По потери фокуса выведите под инпутом сколько дней, минут, секунд осталось до его дня рождения.-->
+
+    <input type="text" name="" onchange="calcHours(this)">
+    <p id="txt1"></p>
+    <br>
+    <script>
+        function calcHours(elem) {
+            var txt = document.getElementById('txt1');
+            var start_date = Date.parse('2016-' + (elem.value.split('-').reverse().join('-')));
+            var end_date = Date.parse('2016-12-31T23:59:59');
+            var diff = (end_date - start_date) / 1000; //разница в секундах
+            var d = Math.floor(diff / 86400); //дней
+            var h = (diff - d * 86400) / 3600; //часов
+            var m = (h - Math.floor(h)) * 60;
+            var s = (m - Math.floor(m)) * 60;
+            txt.innerHTML = ('До дня рождения осталось ' + d + ' дней ' + Math.floor(h) + ' часов ' + Math.floor(m) + ' минут ' + Math.floor(s) + ' секунд');
+        }
+    </script>
 
     <script>
         var date = new Date();
@@ -48,5 +78,6 @@
     </script>
 
 </body>
+<!--    http://theory.phphtml.net/tasks/javascript/base/zadachi-na-rabotu-s-datami-v-javascript.html -->
 
 </html>
