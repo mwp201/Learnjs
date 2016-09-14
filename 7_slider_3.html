@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Пример слайдера 3</title>
+    <style>
+        .slider {
+            width: 550px;
+            margin: 50px auto;
+        }
+        
+        .timer_btn {
+            width: 340px;
+            margin: 0 auto;
+        }
+        
+        .slider button {
+            display: inline-block;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <img id="slider_item1" width="160" height="120" alt="" src="img/auto1.jpg">
+        <img id="slider_item2" width="160" height="120" alt="" src="img/auto2.jpg">
+        <img id="slider_item3" width="160" height="120" alt="" src="img/auto3.jpg">
+        <img id="slider_item4" width="160" height="120" alt="" src="img/auto4.jpg">
+        <img id="slider_item5" width="160" height="120" alt="" src="img/auto5.jpg">
+        <img id="slider_item6" width="160" height="120" alt="" src="img/auto6.jpg">
+        <div class="timer_btn">
+            <button id="timer_btn_start" onclick="startTimer();">Запустить карусель!</button>
+            <button id="timer_btn_stop" onclick="stopTimer();" disabled>Остановить карусель!</button>
+        </div>
+    </div>
+    <script>
+        function startTimer() {
+            window.timerId = window.setInterval(timer, 1000);
+            document.getElementById('timer_btn_start').disabled = true;
+            document.getElementById("timer_btn_stop").disabled = false;
+
+        }
+
+        function timer() {
+            var img1 = document.getElementById("slider_item1");
+            var img2 = document.getElementById("slider_item2");
+            var img3 = document.getElementById("slider_item3");
+            var img4 = document.getElementById("slider_item4");
+            var img5 = document.getElementById("slider_item5");
+            var img6 = document.getElementById("slider_item6");
+            var tmp = img1.src;
+            img1.src = img2.src;
+            img2.src = img3.src;
+            img3.src = img4.src;
+            img4.src = img5.src;
+            img5.src = img6.src;
+            img6.src = tmp;
+        }
+
+        function stopTimer() {
+            clearInterval(window.timerId);
+            document.getElementById("timer_btn_start").disabled = false;
+            document.getElementById("timer_btn_stop").disabled = true;
+        }
+    </script>
+</body>
+
+</html>

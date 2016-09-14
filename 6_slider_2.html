@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Пример слайдера 2</title>
+    <style>
+        .slider {
+            width: 550px;
+            margin: 50px auto;
+        }
+        
+        .slider button {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <img id="slider_item1" width="160" height="120" alt="" src="img/auto1.jpg">
+        <img id="slider_item2" width="160" height="120" alt="" src="img/auto2.jpg">
+        <img id="slider_item3" width="160" height="120" alt="" src="img/auto3.jpg">
+        <button id="timer_btn_start" onclick="startTimer();">Запустить карусель!</button>
+    </div>
+    <script>
+        function startTimer() {
+            window.timerId = window.setInterval(timer, 1000);
+            document.getElementById('timer_btn_start').disabled = true;
+
+        }
+
+        function timer() {
+            var img1 = document.getElementById("slider_item1");
+            var img2 = document.getElementById("slider_item2");
+            var img3 = document.getElementById("slider_item3");
+            var tmp = img1.src;
+            img1.src = img2.src;
+            img2.src = img3.src;
+            img3.src = tmp;
+        }
+    </script>
+</body>
+
+</html>

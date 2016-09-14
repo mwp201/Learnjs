@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- все работает! -->
+
 <head>
     <meta charset="UTF-8">
     <title>Пример слайдера 1</title>
@@ -8,43 +10,49 @@
             width: 250px;
             margin: 50px auto;
         }
-        .timer p{
-            text-align: center;
-        }
-        p:first-child {
-            font-size: 25px;
-            margin-bottom: 0;
-        }
-        #timer_hidden_text {
-            visibility: hidden;
-        }
-        .timer button {
-            display: block;
-            width: 180px;
-            margin: 0 auto;
-        }
     </style>
 </head>
+
 <body>
     <div class="slider">
-        <img id="slider_item" src="img/auto1.jpg" width="160" height="120" alt="">
+        <img id="slider_item" width="160" height="120" alt="">
     </div>
     <script>
+        var i = 1;
+
+        function timer() {
+            var img = document.getElementById("slider_item");
+            img.src = "img/auto" + i + ".jpg";
+            i++;
+            if (i <= 3) {
+                window.setTimeout(timer, 1000); //рекурсия
+            }
+            if (i == 4) {
+                i = 1;
+                window.setTimeout(timer, 1000); //рекурсия
+            }
+        }
+        timer();
         
-        
-             function timer(){
-              var i = 1;
-               while(i<3){
-	            document.getElementById("slider_item").src = "img/auto"+1+".jpg" ;
-                   i++;
-               }
-		        window.setTimeout(timer, 1000); //рекурсия
-            
-         }
-   
-       timer();      
-       
-     
+        //Запускает таймер
+        /*
+			function go(){
+				window.timerId = window.setInterval(timer, 1000);
+				
+			}
+			
+			function timer(){
+				if(window.number == undefined || window.number == 3) {//картинки от 1 до 10
+					window.number = 1;
+				} else window.number = window.number + 1;
+				
+				var img = document.getElementById('img');
+				img.src = 'smiles/'+window.number+'.png'
+				
+			}*/
+//        <body onload="go()">
     </script>
+    
 </body>
+
 </html>

@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <!--  11 -->
+    <!--  11. Создайте инпут, в который пользователь вводит дату своего рождения в формате '2014-12-31' (с конкрентным годом).-->
+    <!--   По потери фокуса выведите под инпутом сколько дней осталось до его дня рождения.  -->
     <input type="text" name="" onchange="calcDate(this)">
     <p id="txt"></p>
     <br>
@@ -71,6 +72,7 @@
     <br>
     <input type="text" name="" onchange="calcDays(this)">
     <p id="txt2"></p>
+    <p>понедельник, вторник, среда, четверг, пятница, суббота, воскресенье</p>
     <br>
     <script>
         function calcDays(elem) {
@@ -103,11 +105,13 @@
             default:
                 alert('Введено неправильное значение!');
             }
-            console.log(current_week_day);
-
-            var res = user_day - current_week_day;
-            if(res==0){
-                res=7;
+            var res;
+            if (current_week_day < user_day) {
+                res = user_day - current_week_day;
+            } else if (user_day < current_week_day) {
+                res = 7 - current_week_day + user_day;
+            } else if (user_day == current_week_day) {
+                res = 7;
             }
 
             txt.innerHTML = ('До ' + elem.value + ' осталось ' + res + ' дней');
@@ -136,13 +140,17 @@
         var date = new Date();
         var week_day = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
         var months = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
-        //1. 6.
+
+        //1. Выведите на экран текущий день 6.Выведите на экран текущий день недели (словом, по-русски)
         document.write('Сегодня ' + week_day[date.getDay()] + '<br>');
-        //2. 
+
+        //2. Выведите на экран текущий месяц
         document.write('Сейчас ' + months[date.getMonth()] + ' месяц' + '<br>');
-        //3. 
+
+        //3. Выведите на экран текущий год
         document.write('Сейчас ' + date.getFullYear() + ' год' + '<br>');
-        //4. 
+
+        //4. Выведите на экран текущую дату-время в формате '12:59:59 31.12.2014'
         document.write(addZero(date.getHours()) + ':' + addZero(date.getMinutes()) + ':' + addZero(date.getSeconds()) + ' ' + addZero(date.getDate()) + '.' + addZero(parseInt(date.getMonth()) + 1) + '.' + date.getFullYear() + '<br>');
 
         function addZero(i) {
@@ -151,17 +159,22 @@
             }
             return i;
         }
-        //5.
+
+        //5. Выведите на экран номер текущего дня недели
         document.write('Сегодня ' + date.getDay() + ' день недели' + '<br>');
-        // 7.
+
+        // 7.Узнайте, какой был 7-го января 2015 года
         date = new Date(2015, 0, 7)
         document.write('7 января 2015 был ' + date.getDay() + ' день недели' + '<br>'); //3
-        //8.
+
+        //8.Выведите на экран количество минут с 1-го января 1970 года до настоящего момента времени
         date = new Date();
         document.write('С 1 января 1970г. до настоящего момента времени прошло ' + date.getTime() / 1000 / 60 + ' минут' + '<br>');
-        //9.
+
+        //9.Выведите на экран количество секунд, прошедшее между 1 марта 1988 года и текущим моментом с помощью Date.parse
         document.write('С 1 марта 1988г. до настоящего момента времени прошло ' + (date.getTime() - Date.parse('1988-03-1')) / 1000 + ' секунд' + '<br>');
-        //10.
+
+        //10.Выведите на экран количество секунд с начала дня до настоящего момента времени
         var date = new Date();
         var current_day = date.getDate();
         var current_month = date.getMonth();
