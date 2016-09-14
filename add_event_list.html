@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Event Listener</title>
+    <style>
+        .timer {
+            width: 550px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- По клику на картинку вывести alert-том ее src, -->
+    <!-- может быть любое количество картинок.-->
+    <div class="timer">
+        <img id="slider_item1" width="160" height="120" alt="" src="img/auto1.jpg">
+        <img id="slider_item2" width="160" height="120" alt="" src="img/auto2.jpg">
+        <img id="slider_item3" width="160" height="120" alt="" src="img/auto3.jpg">
+        <img id="slider_item4" width="160" height="120" alt="" src="img/auto4.jpg">
+        <img id="slider_item5" width="160" height="120" alt="" src="img/auto5.jpg">
+        <img id="slider_item6" width="160" height="120" alt="" src="img/auto6.jpg">
+    </div>
+    <script>
+        var elems = document.getElementsByTagName('img');
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].addEventListener('click', showSrc);
+        }
+
+        function showSrc() {
+            alert(this.src);
+        }
+    </script>
+    <!--    -->
+
+    <!-- 1. Привязать всем ссылкам событие - по наведению на ссылку в атрибут title запишется ее анкор. -->
+    <!-- 2. Всем ссылкам привязать событие - по наведению на ссылку в конец анкора дописывается ее href в круглых скобках.-->
+    <!-- 3. Дополнить первую задачу: после первого наведению на ссылку следует отвязать от нее событие, которое добавляет href в анкор.   -->
+    <div class="timer">
+        <a href="page1.html">LINK 1</a>
+        <a href="page2.html">LINK 2</a>
+        <a href="page3.html">LINK 3</a>
+        <a href="page4.html">LINK 4</a>
+        <a href="page5.html">LINK 5</a>
+        <a href="page6.html">LINK 6</a>
+    </div>
+    <script>
+        var elems = document.getElementsByTagName('a');
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].addEventListener('mouseover', showAncor);
+            elems[i].addEventListener('mouseover', showAncorHref);
+        }
+
+        function showAncor() {
+            this.title = this.textContent;
+        }
+
+        function showAncorHref() {
+            this.title = this.textContent + ' (' + this.href + ')';
+            this.removeEventListener('mouseover', showAncorHref);
+        }
+    </script>
+    <!---->
+
+    <!--4. Все инпуты по потери фокуса выводят свое value в абзац с id="test".-->
+    <div class="timer">
+        <input type="text" name="" id="">
+        <input type="text" name="" id="">
+        <input type="text" name="" id="">
+        <input type="text" name="" id="">
+        <input type="text" name="" id="">
+        <input type="text" name="" id="">
+        <p id="test"></p>
+    </div>
+    <script>
+        var elems = document.getElementsByTagName('input');
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].addEventListener('change', showInputValue);
+        }
+
+        function showInputValue() {
+            var test = document.getElementById('test');
+            test.innerHTML = this.value;
+        }
+    </script>
+    <!-- -->
+
+    <!-- 6. Есть абзацы с числами. По нажатию на абзац в нем должен появится квадрат числа, которое он содержит. -->
+<div class="timer">
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+</div>
+   <script>
+        var elems = document.getElementsByTagName('p');
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].addEventListener('click', showSquare);
+        }
+
+        function showSquare() {
+            this.innerHTML *= this.textContent;
+        }
+    </script>
+    <!-- -->
+
+</body>
+
+</html>
