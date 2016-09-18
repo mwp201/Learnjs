@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Координаты мыши в диве</title>
+</head>
+<style>
+    .border {
+        width: 250px;
+        height: 250px;
+        border: 1px solid blue;
+    }
+</style>
+
+<body>
+    <div id="div_test" class="border">Нажми на меня!</div>
+
+    <script>
+        div_test.onclick = function (event) {
+            // вывести координаты клика
+            alert('X ' + event.clientX + " : " + 'Y ' + event.clientY);
+        }
+    </script>
+
+</body>
+
+</html>

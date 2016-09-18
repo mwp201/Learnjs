@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Прокрутка 2</title>
+</head>
+<style>
+    .border {
+        border: 10px solid blue;
+    }
+    
+    button {
+        margin: 10px;
+    }
+    
+    #str,
+    #str2 {
+        width: 200px;
+        padding: 60px;
+        overflow: hidden;
+        text-align: justify;
+    }
+</style>
+
+<body>
+
+    <button onclick="showWindowHight();">Высота видимой области окна</button>
+    <script>
+        function showWindowHight() {
+            alert(document.documentElement.clientHeight);
+        }
+    </script>
+    <button onclick="showWindowHightScroll();">Полная высота(+ то что прокручено)</button>
+    <script>
+        function showWindowHightScroll() {
+            var scrollHeight = Math.max(
+                document.body.scrollHeight, document.documentElement.scrollHeight,
+                document.body.offsetHeight, document.documentElement.offsetHeight,
+                document.body.clientHeight, document.documentElement.clientHeight
+            );
+
+            alert('Высота с учетом прокрутки: ' + scrollHeight);
+        }
+    </script>
+    <br>
+    <button onclick="showPageXOffset();">Значение window.pageXOffset</button>
+    <script>
+        function showPageXOffset() {
+            alert(window.pageXOffset);
+        }
+    </script>
+    <button onclick="showPageYOffset();">Значение window.pageYOffset</button>
+    <script>
+        function showPageYOffset() {
+            alert(window.pageYOffset);
+        }
+    </script>
+    <button onclick="showPageYOffsetCross();">Кроссбраузерно pageYOffset</button>
+    <script>
+        function showPageYOffsetCross() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            alert("Текущая прокрутка: " + scrollTop);
+        }
+    </script>
+    <br>
+    <button onclick="window.scrollBy(0,30);">Прокрутить страницу на 30px вниз</button>
+    <button onclick="window.scrollTo(50,300);">Прокрутить страницу на 50px влева и 300px сверх</button>
+    <div style="white-space: nowrap;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+
+    <div id="str" class="border">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </div>
+
+    <button onclick="this.scrollIntoView();">scrollIntoView(top)</button>
+    <button onclick="this.scrollIntoView(false)">scrollIntoView(bottom)</button>
+
+    <div id="str2" class="border">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque,
+    </div>
+</body>
+
+</html>

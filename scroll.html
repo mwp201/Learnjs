@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Прокрутка</title>
+</head>
+<style>
+    .border {
+        border: 10px solid blue;
+    }
+    
+    button {
+        margin: 10px;
+    }
+    
+    #str {
+        width: 200px;
+        height: 300px;
+        padding: 60px;
+        margin-left: 100px;
+        overflow: hidden;
+        text-align: justify;
+    }
+</style>
+
+<body>
+    <button onclick="showScroll();">Включить полосу прокрутки</button>
+    <script>
+        function showScroll() {
+            var elem = document.getElementById('str');
+            elem.style.overflow = 'auto';
+        }
+    </script>
+    <button onclick="hiddenScrol();">Отключить полосу прокрутки</button>
+    <script>
+        function hiddenScrol() {
+            var elem = document.getElementById('str');
+            elem.style.overflow = 'hidden';
+        }
+    </script>
+    <br>
+    <button onclick="showWidthCss();">Посмотреть ширину в CSS</button>
+    <script>
+        function showWidthCss() {
+            var elem = document.getElementById('str');
+            alert(elem.style.width);
+        }
+    </script>
+    <button onclick="showWidthComputed();">Посмотреть ширину через getComputedStyle</button>
+    <script>
+        function showWidthComputed() {
+            var elem = document.getElementById('str');
+            var elem_style = getComputedStyle(elem);
+            alert(elem_style.width);
+        }
+    </script>
+    <button onclick="showWidthClientWidth();">Посмотреть ширину через clientWidth</button>
+    <script>
+        function showWidthClientWidth() {
+            var elem = document.getElementById('str');
+            alert(elem.clientWidth);
+        }
+    </script>
+    <button onclick="showWidthScrollWidth();">Посмотреть ширину через scrollWidth</button>
+    <script>
+        function showWidthScrollWidth() {
+            var elem = document.getElementById('str');
+            alert(elem.scrollWidth);
+        }
+    </script>
+    <button onclick="showWidthOffsetWidth();">Посмотреть ширину через offsetWidth</button>
+    <script>
+        function showWidthOffsetWidth() {
+            var elem = document.getElementById('str');
+            alert(elem.offsetWidth);
+        }
+    </script>
+    <button onclick="showClienTop();">Посмотреть clienTop</button>
+    <script>
+        function showClienTop() {
+            var elem = document.getElementById('str');
+            alert(elem.clientTop);
+        }
+    </script>
+    <button onclick="showClientLeft();">Посмотреть clientLeft</button>
+    <script>
+        function showClientLeft() {
+            var elem = document.getElementById('str');
+            alert(elem.clientLeft);
+        }
+    </script>
+    <br>
+    <button onclick="realWidth();">Распахнуть на реальную ширину</button>
+    <script>
+        function realWidth() {
+            var elem = document.getElementById('str');
+            elem.style.width = elem.scrollWidth + 'px';
+        }
+    </script>
+    <button onclick="realHeight();">Распахнуть на реальную высоту</button>
+    <script>
+        function realHeight() {
+            var elem = document.getElementById('str');
+            elem.style.height = elem.scrollHeight + 'px';
+        }
+    </script>
+    <br>
+    <button onclick="showScrollTop();">Посмотреть scrollTop</button>
+    <script>
+        function showScrollTop() {
+            var elem = document.getElementById('str');
+            alert(elem.scrollTop);
+        }
+    </script>
+    <button onclick="showScrollLeft();">Посмотреть scrollLeft</button>
+    <script>
+        function showScrollLeft() {
+            var elem = document.getElementById('str');
+            alert(elem.scrollLeft);
+        }
+    </script>
+    <button onclick="scrollUp();">Прокрутить вниз на 400px от текущего положения</button>
+    <script>
+        function scrollUp() {
+            var elem = document.getElementById('str');
+            elem.scrollTop += 400;
+        }
+    </script>
+    <br>
+    <button onclick="showOffsetLeft();">Посмотреть offsetLeft</button>
+    <script>
+        function showOffsetLeft() {
+            var elem = document.getElementById('str');
+            alert(elem.offsetLeft);
+        }
+    </script>
+    <button onclick="showOffsetTop();">Посмотреть offsetTop</button>
+    <script>
+        function showOffsetTop() {
+            var elem = document.getElementById('str');
+            alert(elem.offsetTop);
+        }
+    </script>
+    <div id="str" class="border">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque, ullam provident optio asperiores repudiandae soluta aspernatur quod?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus vel odit voluptatem amet in placeat reprehenderit aut quia culpa necessitatibus atque,
+    </div>
+
+</body>
+
+</html>

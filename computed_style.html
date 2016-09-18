@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Computed Style</title>
+</head>
+<style>
+    .red {
+        color: red;
+    }
+    
+    .border {
+        border: 1px solid blue;
+    }
+    
+    .font {
+        font-size: 25px;
+    }
+</style>
+
+<body>
+    <button onclick="showWidthCss();">Посмотреть ширину в CSS</button>
+    <button onclick="showWidthComputed();">Посмотреть реальную ширину</button>
+    <p id="str" class="red border">Lorem ipsum dolor sit amet.</p>
+    <script>
+        //ширина
+        function showWidthCss() {
+            var elem = document.getElementById('str');
+            alert(elem.style.width);
+        }
+        //ширина реальная
+        function showWidthComputed() {
+            var elem = document.getElementById('str');
+            var elem_style = getComputedStyle(elem);
+            alert(elem_style.width);
+        }
+    </script>
+</body>
+
+</html>
