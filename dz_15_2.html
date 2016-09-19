@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Перемещение div</title>
+    <title>Перемещение div за курсором в центре</title>
     <style>
         body {
             position: relative;
@@ -17,10 +17,9 @@
         }
     </style>
 </head>
-<!--если onclick заменить на onmousemove то прямоугольник будет перемещаться за мышью-->
 
-<body id="doc_body" onclick="moveDiv();">
-    <p>Нажмите в любое место</p>
+<body id="doc_body" onmousemove="moveDiv();">
+
     <div id="rect"></div>
     <script>
         //установить высоту страницы автоматически
@@ -30,8 +29,12 @@
 
         function moveDiv() {
             var elem = document.getElementById('rect');
-            elem.style.top = event.clientY + 'px';
-            elem.style.left = event.clientX + 'px';
+            var rect_size = getComputedStyle(elem);
+            var elem_width = parseInt(rect_size.width);
+            var elem_height = parseInt(rect_size.height);
+            elem.style.top = (event.clientY - elem_height / 2) + 'px';
+            elem.style.left = (event.clientX - elem_width / 2) + 'px';
+            console.log(elem_width);
         }
     </script>
 </body>

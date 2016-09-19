@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Замыкания, рекурсия</title>
+</head>
+
+<body>
+    <script>
+        //1. Если переменная a больше  нуля - то в ggg запишем функцию,  которая выводит один !, иначе запишем функцию, которая выводит два !.
+        /*
+                var a = 5;
+                var ggg;
+                if (a > 0) {
+                    ggg = function () {
+                        alert('!');
+                    }
+                } else {
+                    ggg = function () {
+                        alert('!!');
+                    }
+                }
+                ggg();*/
+
+        // 2. Функция ggg принимает 2 параметра: число и анонимную функцию, которая возводит число в квадрат. Возведите число в 4-тую степень с помощью ggg.
+        /*
+                function ggg(num, square) {
+                    return alert(square(num) * square(num));
+                }
+
+                ggg(15, function (num) {
+                    return num * num;
+                });
+        */
+
+
+        //3. Функция ggg принимает 2 параметра: анонимную функцию, которая возвращает 3 и анонимную функцию, которая возращает 4.
+        //Верните результатом функции ggg сумму 3 и 4.
+        /*
+        function ggg(num1, num2) {
+            return alert(num1() + num2());
+        }
+
+        ggg(function () {
+            return 3;
+        }, function () {
+            return 4;
+        });*/
+
+        //4. Дана функция ggg. Она требует первым параметром число, вторым функцию, которая возводит в квадрат, а третьим параметром функцию, которая
+        //возводит в куб. Эти функции есть как Function Declaration - kvadrat, kub.  Пусть функция ggg вернет сумму квадрата и куба числа.
+
+        function ggg(num, kvadrat, kub) {
+            return alert(kvadrat(num) + kub(num));
+        }
+        ggg(3, function (num) {
+            return num * num;
+        }, function (num) {
+            return num * num * num;
+        })
+    </script>
+</body>
+
+</html>

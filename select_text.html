@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Выделение текста</title>
+</head>
+
+<body>
+    <p onmouseup="alert(getSelectionText());">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci sequi eos distinctio cumque quis obcaecati, illum eligendi corporis tempore alias expedita, rem minus impedit corrupti mollitia quibusdam magni culpa nam.</p>
+</body>
+<script>
+    function getSelectionText() {
+        var txt = '';
+        if (txt = window.getSelection) { // Не IE, используем метод getSelection
+            txt = window.getSelection().toString();
+        } else { // IE, используем объект selection
+            txt = document.selection.createRange().text;
+        }
+        return txt;
+    }
+</script>
+
+</html>
