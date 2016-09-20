@@ -3,26 +3,173 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>JQUERY</title>
     <script src="libs/jquery-3.1.0.min.js"></script>
 </head>
-<!--http://theory.phphtml.net/tasks/javascript/jquery/zadachi-na-osnovy-raboty-s-jquery.html-->
 
 <body>
     <h2>Заголовок 2 уровня</h2>
     <h2>Заголовок 2 уровня</h2>
-    <h2>Заголовок 2 уровня</h2>
+    <h2></h2>
     <h3>Заголовок 3 уровня</h3>
     <h3>Заголовок 3 уровня</h3>
     <h3>Заголовок 3 уровня</h3>
     <h3>Заголовок 3 уровня</h3>
+    <p class="test">Тестовый параграф 1</p>
+    <p class="test">Тестовый параграф 2</p>
+    <p class="test">Тестовый параграф 3</p>
+    <h2 class="test"><b><i>Title level 2</i></b></h2>
+    <h2 class="test"><i>Title level 2</i></h2>
+    <h2><b><i>Title level 2</i></b></h2>
+    <ul>
+        <li>Item 1</li>
+        <li class="www">Item 2</li>
+        <li>Item 3</li>
+        <li class="www">Item 4</li>
+        <li>Item</li>
+    </ul>
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+        <li>Item 11</li>
+        <li>Item 12</li>
+    </ol>
 </body>
 <script>
+    //1. Всем <h2> поставьте текст "!". 3. Всем <h2> сделайте голубой цвет и font-size: 30px.
     $('h2').html('!').css({
         color: 'blue',
         fontSize: '30px'
     });
+
+    //2. Всем <h3> сделайте красный цвет.
     $('h3').css('color', 'red');
+
+    //4. Все элементы с классом test.
+    $('.test').css('background', 'red');
+
+    //5. Все <h2> с классом test.
+    $('h2.test').css('background', 'green');
+
+    //6. Все абзацы, которые следуют сразу за абзацами.
+    $('p:gt(0)').css('background', 'yellow');
+
+    //7. Все <li>, которые следуют сразу за <li> с классом www.
+    $('li:not(.www)').css('background', 'yellow');
+
+    //8. Все <i> внутри <h2>.
+    $('h2:has(i)').css('color', 'pink');
+
+    //9. Все <i> непосредственно внутри <h2>.
+    $('h2:has(>i)').css('color', 'red');
+
+    //10. Получите и покрасьте в красный цвет Все заголовки
+    $(':header').css('color', 'red');
+
+    //11. Все <h2> НЕ с классом test.
+    $('h2:not(.test)').css('color', 'red');
+
+    //12. Все заголовки НЕ с классом test.
+    $(':header:not(.test)').css('color', 'red');
+
+    //13. Все заголовки, которые следуют сразу за заголовками.
+    $(':header:gt(0)').css('color', 'red');
+
+    //14. Все заголовки с классом test, которые следуют сразу за заголовками с классом test.
+    $(':header.test:gt(0)').css('color', 'blue');
+
+    //15. Все пустые элементы.
+    $(':empty').css('background', 'yellow');
+
+    //16. Первый абзац <p>.
+    $('p:first').css('color', 'red');
+
+    //17. Последний абзац <p>.
+    $('p:last').css('color', 'red');
+
+    //18. Все <li>, которые содержат текст 'Item 2'.
+    $('li:contains("Item 2")').css('color', 'green');
+
+    //19. Все <h2>, внутри которых есть тег <i>.
+    $('h2:has(i)').css('color', 'pink');
+
+    //20. Все <h2>, которые непосредственно содержат <i>.
+    $('h2:has(>i)').css('color', 'red');
+
+    //Получите и покрасьте в красный цвет
+    //21. Третью <li>.
+    $('li:eq(2)').css('color', 'red');
+
+    //22. Все <li> больше 10-той (отсчет с нуля в jQuery!).
+    $('li:gt(9)').css('color', 'red');
+
+    //23. Все <li> меньше 10-той.
+    $('li:lt(9)').css('color', 'red');
+
+    //24. Все <li> больше 10-той и саму 10-ю тоже.
+    $('li:eq(9), li:gt(9)').css('color', 'red');
+
+    //25. Получите первую <li> на странице.
+    $('li:first').css('color', 'green');
+
+    //26. Получите последнюю <li> на странице.
+    $('li:last').css('color', 'green');
+
+    //27. Получите первую <li> в каждой <ol>.
+    $('ol>li:first').css('color', 'red');
+
+    //28. Получите последнюю <li> в каждой <ol>.
+    $('ol>li:last').css('color', 'blue');
+
+    //29. Получите 10-ю <li> в каждой <ol>.
+    $('ol>li:eq(9)').css('color', 'red');
+
+    //30. Четные <li>.
+    $('li:even').css('color', 'red');
+
+    //31. Нечетные <li>.
+    $('li:odd').css('color', 'red');
+
+    //32. Четные <li> в каждой <ol>.
+    $('ol>li:even').css('color', 'red');
+
+    //33. Нечетные <li> в каждой<ol>.
+    $('ol>li:odd').css('color', 'red');
+
+    //34. Сделайте родителя <li> с классом www красного цвета.
+    $('li.www').parent().css('color', 'red');
+
+    //35. Выведите алертом содержимое всех абзацев <p> (по очереди).
+    $('p').each(showText);
+
+    function showText() {
+        alert($(this).html());
+    }
+    //36. Выведите алертом содержимое всех заголовков (по очереди).
+    $(':header').each(showText);
+
+    //37. Поменяйте содержимое всех <li> на их порядковый номер.
+    $('li').each(
+        function () {
+            $(this).html($(this).index() + 1);
+        }
+    );
+
+    //38. Добавьте всем <li> в конец их порядковый номер.
+
+    $('li').each(
+        function () {
+            $(this).html($(this).text() + ' ' + ($(this).index() + 1));
+        }
+    );
 </script>
 
 </html>

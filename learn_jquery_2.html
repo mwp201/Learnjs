@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY 2</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+</head>
+<!--http://theory.phphtml.net/books/javascript/jquery/manipulirovanie-elementami-stranicy-cherez-jquery.html-->
+
+<!--http://theory.phphtml.net/tasks/javascript/jquery/zadachi-na-manipulirovanie-elementami-stranicy-cherez-jquery.html-->
+
+<body>
+    <h2>Заголовок 2 уровня</h2>
+    <h2>Заголовок 2 уровня</h2>
+    <h2></h2>
+    <h3>Заголовок 3 уровня</h3>
+    <h3>Заголовок 3 уровня</h3>
+    <h3>Заголовок 3 уровня</h3>
+    <h3>Заголовок 3 уровня</h3>
+    <p class="test">Тестовый параграф 1</p>
+    <p class="test">Тестовый параграф 2</p>
+    <p class="test">Тестовый параграф 3</p>
+    <h2 class="test"><b><i>Title level 2</i></b></h2>
+    <h2 class="test"><i>Title level 2</i></h2>
+    <h2><b><i>Title level 2</i></b></h2>
+    <ul>
+        <li>Item 1</li>
+        <li class="www">Item 2</li>
+        <li>Item 3</li>
+        <li class="www">Item 4</li>
+        <li>Item</li>
+    </ul>
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+        <li>Item 11</li>
+        <li>Item 12</li>
+    </ol>
+</body>
+<script>
+    //1. Оберните каждый <h2> в <div>.
+    $('h2').wrap('div');
+
+    //2. Оберните каждый <h2> в <div> с классом test.
+    $('h2').wrap('<div class="test"></div>');
+
+    //3. Оберните каждый <h2> внутри в <i>.
+    $('h2').wrap('i');
+
+    //4. Оберните все <h2> в один <i>.
+    $('h2').wrapAll('i');
+
+    //5. Найдите абзацы <p>, обернутые дивами <div>, и удалите эти дивы.
+    $('p').unwrap();
+
+    //6. Перед каждым <h2> вставьте '<p>!</p>'.
+    $('h2').before('<p>!</p>');
+
+    //7. После каждого <h2> вставьте '<p>?</p>'.
+    $('h2').after('<p>?</p>');
+
+    //8. Сделайте первое и второе задание одновременно (цепочкой).
+    $('h2').before('<p>!</p>').after('<p>?</p>');
+
+    //9. Внутри каждого <h2> в начале вставьте '!'.
+    $('h2').prepend('!');
+
+    //10. Внутри каждого <h2> в конце вставьте '?'.
+    $('h2').append('?');
+
+    //11. Сделайте предыдущие два задания одновременно + окрасьте все <h2> в красный цвет.
+    $('h2').prepend('!').append('?').css('color', 'red');
+
+    //12. каждый <h2> замените на его содержимое.
+
+    //13. каждый <h2> замените на его содержимое, стоящее в абзаце.
+
+    //14. Каждый заголовок замените на его содержимое, стоящее в абзаце.
+
+    //15. Удалите все <h2>.
+
+    //16. Сделайте все <h2> пустыми.
+    //17. Получите атрибут href ссылки из класса www.
+
+    //18. Получите атрибут href первой ссылки.
+
+    //19. Получите атрибут href всех ссылок и последовательно выведите алертом.
+
+    //20. Замените href каждой ссылки на '!'.
+
+    //21. Добавьте каждой ссылке атрибут target='_blank'.
+
+    //22. Замените содержимое каждой ссылки (анкоры) на их href.
+
+    //23. Вставьте после содержимого каждой ссылки их href в круглых скобках.
+
+    //24. Вставьте в атрибут title каждой ссылки ее анкор.
+</script>
+
+</html>
