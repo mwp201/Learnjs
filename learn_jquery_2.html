@@ -5,6 +5,36 @@
     <meta charset="utf-8">
     <title>JQUERY 2</title>
     <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        #wrapper {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .test1 {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        .test2 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            padding: 5px;
+            margin: 5px;
+        }
+        
+        .test3 {
+            width: 100px;
+            height: 200px;
+            border: 1px solid green;
+            padding: 15px;
+            margin: 15px;
+        }
+    </style>
 </head>
 <!--http://theory.phphtml.net/books/javascript/jquery/manipulirovanie-elementami-stranicy-cherez-jquery.html-->
 
@@ -45,7 +75,28 @@
         <li>Item 11</li>
         <li>Item 12</li>
     </ol>
+    <a href="/index.html">LINK 1</a>
+    <a href="/home.html" class="www">LINK 2</a>
+    <a href="/store.html" class="www">LINK 3</a>
+
+    <input class="in" type="text" name="" id="" value="23">
+    <input class="number" type="text" name="" id="" value="33">
+    <input class="number" type="text" name="" id="" value="43">
+    <input type="text" name="" id="" value="53">
+    <textarea class="text" name="" id="" cols="30" rows="10">text text text</textarea>
+    <input type="checkbox" name="" id="" checked>
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="" checked>
+    <input type="checkbox" name="" id="">
+    <div id="wrapper">
+        <div class="test1">Lorem</div>
+        <div class="test2">Lorem</div>
+        <div class="test3">Lorem</div>
+    </div>
+
 </body>
+
 <script>
     //1. Оберните каждый <h2> в <div>.
     $('h2').wrap('div');
@@ -81,29 +132,136 @@
     $('h2').prepend('!').append('?').css('color', 'red');
 
     //12. каждый <h2> замените на его содержимое.
+    $('h2').replaceWith($('h2').text());
 
     //13. каждый <h2> замените на его содержимое, стоящее в абзаце.
+    $('h2').replaceWith($('p').text());
 
     //14. Каждый заголовок замените на его содержимое, стоящее в абзаце.
+    $(':header').replaceWith($('p').text());
 
     //15. Удалите все <h2>.
+    $('h2').remove();
 
     //16. Сделайте все <h2> пустыми.
+    $('h2').empty();
+
     //17. Получите атрибут href ссылки из класса www.
+    alert($('a.www').attr('href'));
 
     //18. Получите атрибут href первой ссылки.
+    alert($('a:first').attr('href'));
 
     //19. Получите атрибут href всех ссылок и последовательно выведите алертом.
+    $('a').each(function () {
+        alert($(this).attr('href'));
+    });
 
     //20. Замените href каждой ссылки на '!'.
+    $('a').each(function () {
+        $(this).attr('href', '!');
+    });
 
     //21. Добавьте каждой ссылке атрибут target='_blank'.
+    $('a').each(function () {
+        $(this).attr('target', '_blank');
+    });
 
     //22. Замените содержимое каждой ссылки (анкоры) на их href.
+    $('a').each(function () {
+        $(this).text($(this).attr('href'));
+    });
 
     //23. Вставьте после содержимого каждой ссылки их href в круглых скобках.
+    $('a').each(function () {
+        $(this).text($(this).text() + ' (' + $(this).attr('href') + ')');
+    });
 
     //24. Вставьте в атрибут title каждой ссылки ее анкор.
+    $('a').each(function () {
+        $(this).attr('title', $(this).text());
+    });
+
+    //25. Добавьте всем li класс test.
+    $('li').each(function () {
+        $(this).addClass('test');
+    });
+
+    //26. Удалите у li класс www.
+    $('li').each(function () {
+        $(this).removeClass('www');
+    });
+
+    //27. Добавьте всем li класс www, если его нет, и удалите, если есть.
+    $('li').each(function () {
+        $(this).toggleClass('www');
+    });
+
+    //28. Проверьте, что хотя бы одна из ссылок имеет класс www.
+    $('a').each(function () {
+        alert($(this).hasClass('www'));
+    });
+
+    //29. Выведите value инпута с классом in.
+    alert($('input.in').attr('value'));
+
+    //30. Выведите содержимое textarea с классом text.
+    alert($('textarea.text').val());
+
+    //31. Выведите последовательно value каждого инпута.
+    $('input').each(function () {
+        alert($(this).attr('value'));
+    });
+
+    //32. Установите value всех инпутов в '!'.
+    $('input').each(function () {
+        $(this).attr('value', '!');
+    });
+
+    //33. В value всех инпутов с классом number находятся числа. Сделайте так, чтобы в них стали квадраты этих чисел.
+    $('input.number').each(function () {
+        $(this).attr('value', $(this).attr('value') * $(this).attr('value'));
+    });
+
+    //34. Установите все отмеченные чекбоксы в неотмеченные.
+    $('input[type="checkbox"]').each(function () {
+        $(this).prop('checked', true);
+    });
+
+    //35. Установите все неотмеченные чекбоксы в отмеченные.
+    $('input[type="checkbox"]').each(function () {
+        $(this).prop('checked', false);
+    });
+
+    //36. Установите все отмеченные чекбоксы в неотмеченные и наоборот.
+    $('input[type="checkbox"]').each(function () {
+        if ($(this).prop('checked') == true) {
+            $(this).prop('checked', false);
+        } else {
+            $(this).prop('checked', true);
+        }
+    });
+
+    //37. Сделайте неотмеченным последний чекбокс на странице.
+    $('input[type="checkbox"]:last').prop('checked', false);
+
+    //38. Узнайте ширину и высоту первого, второго и третьего дивов <div> (по очереди) непосредственно внутри #wrapper без учета padding и границы.
+    $('#wrapper>div').each(function () {
+        alert($(this).height() + ' x ' + $(this).width());
+    });
+
+    //39. То же самое с учетом padding.
+    $('#wrapper>div').each(function () {
+        alert($(this).innerHeight() + ' x ' + $(this).innerWidth());
+    });
+    //40. То же самое с учетом padding и границы.
+    $('#wrapper>div').each(function () {
+        alert($(this).outerHeight() + ' x ' + $(this).outerWidth());
+    });
+    //41. То же самое с учетом padding, границы и margin.
+    $('#wrapper>div').each(function () {
+        alert($(this).outerHeight(true) + ' x ' + $(this).outerWidth(true));
+    });
 </script>
 
 </html>
