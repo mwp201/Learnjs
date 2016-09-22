@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY 3</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        #wrapper {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .test1 {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        .test2 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            padding: 5px;
+            margin: 5px;
+        }
+        
+        .test3 {
+            width: 100px;
+            height: 200px;
+            border: 1px solid green;
+            padding: 15px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Заголовок 2 уровня 1</h2>
+    <h2>Заголовок 2 уровня 2</h2>
+    <p class="test"><b>Тестовый параграф 1</b></p>
+    <p class="test"><b>Тестовый параграф 2</b></p>
+    <p></p>
+    <h2></h2>
+
+    <h3>Заголовок 3 уровня</h3>
+    <h3>Заголовок 3 уровня</h3>
+    <h3>Заголовок 3 уровня</h3>
+    <h3>Заголовок 3 уровня</h3>
+    <p class="test"><b>Тестовый параграф 1</b></p>
+    <p class="test"><b>Тестовый параграф 2</b></p>
+    <p class="www">Тестовый параграф 3</p>
+    <h2 class="test"><b><i>Title level 2</i></b></h2>
+    <h2 class="test"><i>Title level 2</i></h2>
+    <h2><b><i>Title level 2</i></b></h2>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li class="www">Item 4</li>
+        <li>Item</li>
+    </ul>
+    <ol>
+        <li class="test">Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li class="test">Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+        <li>Item 11</li>
+        <li>Item 12</li>
+    </ol>
+    <a href="/index.html">LINK 1</a>
+    <a href="/home.html" class="www">LINK 2</a>
+    <a href="/store.html" class="www">LINK 3</a>
+
+    <input class="in" type="text" name="" id="" value="23">
+    <input class="number" type="text" name="" id="" value="33">
+    <input class="number" type="text" name="" id="" value="43">
+    <input type="text" name="" id="" value="53">
+    <textarea class="text" name="" id="" cols="30" rows="10">text text text</textarea>
+    <input type="checkbox">
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="">
+    <div id="wrapper">
+        <div class="test1">Lorem5656565</div>
+        <p></p>
+        <div id="test" class="test2">Lorem</div>
+        <div class="test3">Lorem</div>
+    </div>
+
+</body>
+
+<script>
+    /*
+                                                                                                                                                                                                                                                                                //1. Все абзацы <p>, внутри которых есть <b>, оберните в тег <div>.
+                                                                                                                                                                                                                                                                                $('p:has(b)').each(function () {
+                                                                                                                                                                                                                                                                                    $(this).wrap('div');
+                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                    //2. Найдите все абзацы <p> с классом .www, поставьте им в начало текст '!', затем добавьте к этим абзацам еще и заголовки h1-h6 и покрасьте эти абзацы и заголовки в красный цвет.
+                                                                                                                                                                                    $('p.www').each(function () {
+                                                                                                                                                                                        $(this).prepend('!').add('h1').css('color', 'red')
+                                                                                                                                                                                    });
+
+                                                                                                                                                                                    //3. Найдите все абзацы <p>, и замените их на тег <div> с таким же содержимым.
+                                                                                                                                                                                    $('p').replaceWith(function () {
+                                                                                                                                                                                        return '<div>' + $(this).text() + '</div>'
+                                                                                                                                                                                    });
+
+                                                                                                                                                                                    //4. Найдите все чекбоксы на странице и заблокируйте четные из найденных.
+                                                                                                                                                                                    $('input[type=checkbox]:odd').prop('disabled', true);
+
+                                                                                                                                                                                    //5. Поставьте всем незаблокированным чекбоксам статус "отмечен".
+                                                                                                                                                                                    if ($('input[type=checkbox]').prop('disabled') == false) {
+                                                                                                                                                                                        $('input[type=checkbox]').prop('checked', true);
+                                                                                                                                                                                    };
+
+                                                                                                                                                                                    //6. Дан элемент #test. Поставьте его непосредственному соседу сверху текст '!', а соседу снизу - текст '?'.
+                                                                                                                                                                                    $('#test').prev().html('!');
+                                                                                                                                                                                    $('#test').next().html('?');
+
+                                                                                                                                                                                    //7. Дан элемент #test. Поставьте его непосредственным соседям сверху и снизу текст элемента #test.
+                                                                                                                                                                                    $('#test').siblings().html($('#test').text());
+
+                                                                                                                                            //8. Дан элемент #test. Найдите среди его соседей сверху ближайший абзац и поставьте ему текст элемента #test.
+                                                                                                                                            $('#test').prev('p').html($('#test').text());
+
+                                                                                                                                            //9. Найдите второй <li> на странице, добавьте ему класс .www, оберните его внутри тегом <i>, вставьте после него <li> с текстом 'привет'.
+                                                                                                                                            $('li').eq(1).addClass('www').wrap('i').add('li').html('привет');
+
+                                                                                                                                            //10. Найдите десятый <li> на странице, найдите его родителя, получите непосредственного соседа родителя сверху, оберните его в <div class="www">.
+                                                                                                                                            $('li').eq(9).parent().prev().wrap('<div class="www"></div>');
+
+                                                                                                                                            //11. Каждому абзацу <p>, кроме абзацев с классом .www, добавьте к конец его порядковый номер.
+                                                                                                                                            $('p').not('.www').each(function () {
+                                                                                                                                                $(this).append($(this).index());
+                                                                                                                                            });
+                                                                                                                                        
+                                                                                    //12. Найдите абзацы <p>, которые стоят непосредственно под <h2> и поставьте перед каждым <h2> копию абзаца, который стоит под ним. Копию покрасьте в красный цвет, а исходный абзац в зеленый.
+                                                                                    $('p').prev('h2').each(function () {
+                                                                                        $(this).css('color', 'green').clone().css('color', 'red').insertBefore('h2');
+                                                                                    });
+                                                                              
+                                                                                //13. Найдите абзацы <p>, которые стоят непосредственно под <h2> и переместите этот абзац так, чтобы он стал непосредственно над <h2>.
+                                                                                $('p').prev('h2').each(function () {
+                                                                                    $(this).clone().insertBefore('h2');
+                                                                                });
+                                                                                //14. Найдите все пустые абзацы <p> (без текста) и вставьте в них текст непосредственного соседа сверху.
+                                                                                $('p:empty').each(function () {
+                                                                                    $(this).html($(this).prev().text());
+                                                                                });*/
+
+    //15. Родителю тега <b>, если это элемент с классом .www или абзац <p>, поставьте красный цвет и размер текста в 30px.
+    $('b').parent('.www').css({
+        color: 'red',
+        fontSize: '30px'
+    });
+    $('b').parent('p').css({
+        color: 'red',
+        fontSize: '30px'
+    });
+
+
+    //16. Всем пустым абзацам <p> поставьте текст ближайшего к ним сверху тега <h2>.
+    $('p:empty').each(function () {
+        $(this).html($(this).prevAll('h2').text());
+    });
+
+    //17. Сделайте так, чтобы по нажатию на кнопку каждый инпут взял текст ближайшего инпута снизу (внутри одного родителя).
+
+    //18. Любому абзацу <p>, идущему непосредственно после любого заголовка (h1-h6), поставьте в начало текст этого заголовка.
+
+    //19. Дан элемент #test. Поставьте ему в начало текст непосредственного соседа сверху, а в конец - текст непосредственного соседа снизу.
+
+    //20. Дан элемент #test. Найдите его второго соседа сверху и его второго соседа снизу. Сделайте так, чтобы найденные элементы обменялись текстом (сосед сверху возьмет текст соседа снизу и наоборот).
+</script>
+
+</html>

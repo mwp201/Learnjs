@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY BIND</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="block-1">Это тестовый блок. Кликни по мне!</div>
+    <div id="block-2">Это тестовый блок. Наведи на меня!</div>
+    <div id="block-3">Это тестовый блок. Наведи и убери мышь!</div>
+    <div id="block-4">Это тестовый блок. Двойной клик по мне!</div>
+</body>
+
+<script>
+    $('#block-1').bind('click', function () {
+        alert($(this).text());
+    });
+    $('#block-2').bind('mouseover', function () {
+        alert($(this).text());
+    });
+    $('#block-3').bind('mouseout', function () {
+        alert($(this).text());
+    });
+    $('#block-4').bind('dblclick', function () {
+        alert($(this).text());
+    });
+</script>
+
+</html>

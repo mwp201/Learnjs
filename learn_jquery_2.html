@@ -99,7 +99,7 @@
 
 <script>
     //1. Оберните каждый <h2> в <div>.
-    $('h2').wrap('div');
+    $('h2').wrap('<div>');
 
     //2. Оберните каждый <h2> в <div> с классом test.
     $('h2').wrap('<div class="test"></div>');
@@ -158,19 +158,13 @@
     });
 
     //20. Замените href каждой ссылки на '!'.
-    $('a').each(function () {
-        $(this).attr('href', '!');
-    });
+    $('a').attr('href', '!');
 
     //21. Добавьте каждой ссылке атрибут target='_blank'.
-    $('a').each(function () {
-        $(this).attr('target', '_blank');
-    });
+    $('a').attr('target', '_blank');
 
     //22. Замените содержимое каждой ссылки (анкоры) на их href.
-    $('a').each(function () {
-        $(this).text($(this).attr('href'));
-    });
+    $('a').text($(this).attr('href'));
 
     //23. Вставьте после содержимого каждой ссылки их href в круглых скобках.
     $('a').each(function () {
@@ -183,19 +177,13 @@
     });
 
     //25. Добавьте всем li класс test.
-    $('li').each(function () {
-        $(this).addClass('test');
-    });
+    $('li').addClass('test');
 
     //26. Удалите у li класс www.
-    $('li').each(function () {
-        $(this).removeClass('www');
-    });
+    $('li').removeClass('www');
 
     //27. Добавьте всем li класс www, если его нет, и удалите, если есть.
-    $('li').each(function () {
-        $(this).toggleClass('www');
-    });
+    $('li').toggleClass('www');
 
     //28. Проверьте, что хотя бы одна из ссылок имеет класс www.
     $('a').each(function () {
@@ -214,24 +202,20 @@
     });
 
     //32. Установите value всех инпутов в '!'.
-    $('input').each(function () {
-        $(this).attr('value', '!');
-    });
+    $('input').attr('value', '!');
 
     //33. В value всех инпутов с классом number находятся числа. Сделайте так, чтобы в них стали квадраты этих чисел.
     $('input.number').each(function () {
-        $(this).attr('value', $(this).attr('value') * $(this).attr('value'));
+        var $elem = $(this);
+        var attr = $elem.attr('value');
+        $elem.attr('value', attr * attr)
     });
 
     //34. Установите все отмеченные чекбоксы в неотмеченные.
-    $('input[type="checkbox"]').each(function () {
-        $(this).prop('checked', true);
-    });
+    $('input[type="checkbox"]').prop('checked', true);
 
     //35. Установите все неотмеченные чекбоксы в отмеченные.
-    $('input[type="checkbox"]').each(function () {
-        $(this).prop('checked', false);
-    });
+    $('input[type="checkbox"]').prop('checked', false);
 
     //36. Установите все отмеченные чекбоксы в неотмеченные и наоборот.
     $('input[type="checkbox"]').each(function () {
@@ -241,7 +225,11 @@
             $(this).prop('checked', true);
         }
     });
-
+    //покороче
+    $('input[type="checkbox"]').each(function () {
+        $(this).prop('checked', !$(this).prop('checked'));
+    });
+    
     //37. Сделайте неотмеченным последний чекбокс на странице.
     $('input[type="checkbox"]:last').prop('checked', false);
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY СОБЫТИЯ БЕЗ BIND</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            padding: 10px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<!--http://jquery.page2page.ru/index.php5/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-->
+
+<body>
+    <div id="block-1">Это тестовый блок. Кликни по мне!</div>
+    <div id="block-2">Это тестовый блок. Наведи на меня!</div>
+    <div id="block-3">Это тестовый блок. Наведи и убери мышь!</div>
+    <div id="block-4">Это тестовый блок. Двойной клик по мне!</div>
+    <div id="block-5">Это тестовый блок на hover. Наведи мышь! Убери мышь!</div>
+    <div id="block-6">Попробуйте закрыть эту страницу!</div>
+</body>
+
+<script>
+    $('#block-1').click(function () {
+        alert($(this).text());
+    });
+    $('#block-2').mouseover(function () {
+        alert($(this).text());
+    });
+    $('#block-3').mouseout(function () {
+        alert($(this).text());
+    });
+    $('#block-4').dblclick(function () {
+        alert($(this).text());
+    });
+    $('#block-5').hover(function () {
+            $(this).html('Навели мышь');
+        },
+        function () {
+            $(this).html('Убрали мышь');
+        });
+</script>
+
+</html>
