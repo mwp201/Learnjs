@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY FIDE TOGGLE</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        ol {
+            width: 120px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid #000;
+        }
+        
+        ol li {
+            width: 100px;
+            margin: 0;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<!--http://jquery.page2page.ru/index.php5/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-->
+
+<body>
+
+    <a id="link_1" href="#">спрятать</a>
+
+    <ol>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+    </ol>
+
+</body>
+
+<script>
+    $('#link_1').click(function () {
+        $('ol').fadeToggle(function () {
+            if ($('#link_1').html() == 'спрятать') {
+                $('#link_1').html('показать');
+            } else {
+                $('#link_1').html('спрятать');
+            }
+        });
+    });
+</script>
+
+</html>

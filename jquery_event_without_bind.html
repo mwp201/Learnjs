@@ -15,6 +15,12 @@
             border: 1px solid #000;
             cursor: pointer;
         }
+        
+        #block-7,
+        #block-8 {
+            overflow: auto;
+            max-height: 800px;
+        }
     </style>
 </head>
 <!--http://jquery.page2page.ru/index.php5/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-->
@@ -26,27 +32,39 @@
     <div id="block-4">Это тестовый блок. Двойной клик по мне!</div>
     <div id="block-5">Это тестовый блок на hover. Наведи мышь! Убери мышь!</div>
     <div id="block-6">Попробуйте закрыть эту страницу!</div>
+    <div id="block-7">Прокрутить полосу прокрутки</div>
+    <div id="block-8">Изменить размер окна браузера</div>
+    <a href="http://ya.ru">YANDEX</a>
 </body>
 
 <script>
     $('#block-1').click(function () {
-        alert($(this).text());
-    });
-    $('#block-2').mouseover(function () {
-        alert($(this).text());
-    });
-    $('#block-3').mouseout(function () {
-        alert($(this).text());
-    });
-    $('#block-4').dblclick(function () {
-        alert($(this).text());
-    });
-    $('#block-5').hover(function () {
-            $(this).html('Навели мышь');
-        },
-        function () {
-            $(this).html('Убрали мышь');
-        });
+                alert($(this).text());
+                $('#block-2').mouseover(function () {
+                    alert($(this).text());
+                });
+                $('#block-3').mouseout(function () {
+                    alert($(this).text());
+                });
+                $('#block-4').dblclick(function () {
+                    alert($(this).text());
+                });
+                $('#block-5').hover(function () {
+                        $(this).html('Навели мышь');
+                    },
+                    function () {
+                        $(this).html('Убрали мышь');
+                    });
+                $(window).scroll(function () {
+                    $('#block-7').append('<br>Вы прокрутили страницу!');
+                });
+                $(window).resize(function () {
+                    $('#block-8').append('<br>Размер окна браузера изменен!');
+                });
+                //не работает
+                $(window).unload(function () {
+                    alert("Пока, пользователь!");
+                });
 </script>
 
 </html>

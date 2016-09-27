@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY ON</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<!--http://jquery.page2page.ru/index.php5/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-->
+
+<body>
+    <a href="#" id="link-1">Добавить новый пункт с привязанным событием</a>
+    <ol id="list">
+        <li><a href="#">пункт(был)</a></li>
+    </ol>
+    <a href="#" id="link-2">Отвязать событие от пунктов списка</a>
+</body>
+
+<script>
+    $('#link-1').on('click', function () {
+        $('#list').append('<li><a href="#">пункт</a></li>');
+    });
+
+    $('#list').on('click', function () {
+        alert('Событие привязано!');
+    });
+
+    $('#link-2').on('click', function () {
+        $('#list').off('click');
+        alert('Событие отвязано!')
+    });
+</script>
+
+</html>

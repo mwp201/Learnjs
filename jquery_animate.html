@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY ANIMATE</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        ol {
+            width: 120px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        ol li {
+            width: 100px;
+            margin: 0;
+            padding: 0 10px;
+        }
+        
+        div {
+            display: inline-block;
+            margin-bottom: 20px;
+            vertical-align: top;
+            padding: 20px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        
+        h2 {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<!--http://jquery.page2page.ru/index.php5/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-->
+
+<body>
+    <div id="elem_1">
+        <h2>1. Нажми на меня</h2>
+        <ol>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+        </ol>
+    </div>
+    <br>
+    <div id="elem_2">
+        <h2>2. Нажми на меня</h2>
+        <ol>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+        </ol>
+    </div>
+    <br>
+    <div id="elem_3">
+        <h2>3. Нажми на меня</h2>
+        <ol>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+        </ol>
+    </div>
+    <br>
+    <div id="elem_4">
+        <h2>4. Нажми на меня</h2>
+        <ol>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+            <li>пункт списка</li>
+        </ol>
+    </div>
+</body>
+
+<script>
+    $('#elem_1').click(function () {
+        $(this).animate({
+            width: "80%"
+        }, 1000);
+    });
+    $('#elem_2').click(function () {
+        $(this).animate({
+            width: "+=10%"
+        }, 1000);
+    });
+    $('#elem_3').click(function () {
+        $(this).animate({
+            width: "+=10%",
+            height: "+=50px"
+        }, 1000);
+    });
+    $('#elem_4').click(function () {
+        $(this).animate({
+            marginLeft: "+=250px"
+        }, 1000);
+    });
+</script>
+
+</html>

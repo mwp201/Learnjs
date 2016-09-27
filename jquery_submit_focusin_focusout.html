@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY SUBMIT FOCISIN FOCUSOUT</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        .test-form {
+            padding-top: 20px;
+        }
+        
+        input[type=text] {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<!--http://jquery.page2page.ru/index.php5/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-->
+
+<body>
+
+    <form action="" class="test-form" id="test_form">
+        <p>
+            <input type="text" name="" id="field_1" value="Тест">
+        </p>
+        <p>
+            <input type="text" name="" id="field_2" value="Привет">
+        </p>
+        <p>
+            <input type="text" name="" id="field_3" value="Куку">
+        </p>
+        <input type="submit" value="Отправить форму!">
+    </form>
+
+</body>
+
+<script>
+    $('#test_form').submit(function () {
+        $('input[type=text]').each(function () {
+            if (!$(this).prev().is('p')) {
+                $(this).before('<p>Вы ввели "' + $(this).val() + '"</p>');
+            } else {
+                $(this).prev().html('<p>Вы ввели ' + $(this).val() + '</p>');
+            }
+        });
+        alert('Попытка отправить форму! Проверяю данные!');
+        return false;
+    });
+
+    $('input[type=text]').focus(function () {
+        $(this).after(' Я получил фокус!')
+    })
+</script>
+
+</html>

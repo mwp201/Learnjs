@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY FADEIN FADEOUT</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        ol {
+            width: 120px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid #000;
+        }
+        
+        ol li {
+            width: 100px;
+            margin: 0;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<!--http://jquery.page2page.ru/index.php5/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-->
+
+<body>
+
+    <a id="link_1" href="#">исчезнуть</a>
+    <a id="link_2" href="#">появиться</a>
+    <a id="link_3" href="#">затемнить</a>
+    <a id="link_4" href="#">оттемнить</a>
+
+    <ol>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+        <li>пункт списка</li>
+    </ol>
+
+</body>
+
+<script>
+    $('#link_1').click(function () {
+        $('ol').fadeOut(1000);
+    });
+    $('#link_2').click(function () {
+        $('ol').fadeIn(1000);
+    });
+    $('#link_3').click(function () {
+        $('ol').fadeTo(400, 0.5);
+    });
+    $('#link_4').click(function () {
+        $('ol').fadeTo(400, 1);
+    });
+</script>
+
+</html>

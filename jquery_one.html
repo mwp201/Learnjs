@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQUERY ONE</title>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <style>
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<!--http://jquery.page2page.ru/index.php5/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-->
+
+<body>
+
+    <ol id="list">
+        <li><a href="#">пункт</a></li>
+        <li><a href="#">пункт</a></li>
+        <li><a href="#">пункт</a></li>
+        <li><a href="#">пункт</a></li>
+        <li><a href="#">пункт</a></li>
+        <li><a href="#">пункт</a></li>
+    </ol>
+
+</body>
+
+<script>
+    $('#list li a').one('click', function () {
+        $(this).html($(this).text() + ' (событие отработало)');
+        alert('Клик по элементу');
+    });
+</script>
+
+</html>
