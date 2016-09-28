@@ -8,21 +8,52 @@
     <style>
 
     </style>
-
 </head>
 
 <body>
-    <h1>Header1</h1>
-    <p>Paragraf 1</p>
-    <p id="test">Paragraf 2</p>
-    <h2>Header2</h2>
-    <p>Paragraf 3</p>
-    <p>Paragraf 4</p>
+    <div id="test">
+        <div class="qqq">
+            <h1 class="h1-start">Header1</h1>
+            <p class="www">Paragraf 1</p>
+            <p>Paragraf 7</p>
+        </div>
+        <div class="aaa">
+            <p>Paragraf 2</p>
+            <h2 class="h2-start">Header2</h2>
+            <p>Paragraf 7</p>
+            <p>Paragraf 11</p>
+        </div>
+        <div class="zzz">
+            <p class="www">Paragraf 3</p>
+            <p class="www">Paragraf 4</p>
+            <p class="www">Paragraf 5</p>
+            <p class="www">Paragraf 6</p>
+            <h2 class="h2-end">Header2</h2>
+        </div>
+    </div>
+    <p>Paragraf 10</p>
+    <p>Paragraf 8</p>
+    <p>Paragraf 9</p>
 </body>
 
 <script>
-    //20. Дан элемент #test. Найдите его второго соседа сверху и его второго соседа снизу. Сделайте так, чтобы найденные элементы обменялись текстом (сосед сверху возьмет текст соседа снизу и наоборот).
-    $('#test').parent();
+    // $('#test > :not(p)')
+
+    //42. Найдите все абзацы <p>, у которых непосредственный родитель не <div> и оберните их в <div class="www">.
+    // $(':not(div) > p').wrap('<div class="www"></div>');
+
+    //43. Найдите все абзацы <p>. Удалите их родителя (сделайте ему unwrap), если этот родитель не <div> с классом .www. Затем для те абзацы, у которых был удален родитель, оберните в <div> с классом .zzz.
+    //$(':not(div.www) > p').unwrap().wrap('<div class="www"></div>');
+
+    //44. Найдите все элементы из #test с классом .www, но не заголовки (не h1-h6). Удалите их родителя (сделайте ему unwrap), если этот родитель не #test. Затем оберните каждый элемент в <div>.
+    // $('#test > .www:not(:header)').unwrap($(':not(#test)')).wrap('<div></div>');
+
+    //45. Найдите всех родителей элемента из #test и создайте массив из CSS классов этих родителей.
+    var $arr_cls = [];
+    $('#test>:parent').each(function () {
+        $arr_cls.push($(this).attr('class'));
+    });
+    console.log($arr_cls);
 </script>
 
 </html>
