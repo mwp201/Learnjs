@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    .menu,
+    #big {
+        border: 1px solid #000;
+        margin: 50px auto;
+    }
+    
+    .menu ul {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        opacity: .5;
+    }
+    
+    .menu ul li a {
+        min-width: 120px;
+        padding: 20px 40px;
+        background-color: #abcdef;
+        border: 1px solid #000;
+    }
+    
+    .menu ul li a:hover {
+        background-color: #fedcba;
+    }
+</style>
+
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="">item 1 item 1</a></li>
+            <li>
+                <a href="">item 2</a>
+            </li>
+            <li><a href="">item 3</a></li>
+            <li><a href="">item 4</a></li>
+            <li><a href="">item 5</a></li>
+        </ul>
+    </div>
+    <div id="big">
+        <a href="#">Link1</a>
+        <a href="#">Link2</a>
+        <a href="#">Link3</a>
+        <p><a href="#">Link4</a></p>
+        <p><b><i><a href="#">Link5</a></i></b></p>
+        <a class="wide" href="#">Link6</a>
+    </div>
+    <p>Test text</p>
+    <a href="#">Link7</a>
+    <a href="#">Link8</a>
+
+</body>
+
+</html>
