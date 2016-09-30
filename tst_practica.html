@@ -17,7 +17,7 @@
             <p class="www">Paragraf 1</p>
             <p>Paragraf 7</p>
         </div>
-        <div class="aaa">
+        <div id="text" class="aaa">
             <p>Paragraf 2</p>
             <h2 class="h2-start">Header2</h2>
             <p>Paragraf 7</p>
@@ -27,33 +27,26 @@
             <p class="www">Paragraf 3</p>
             <p class="www">Paragraf 4</p>
             <p class="www">Paragraf 5</p>
-            <p class="www">Paragraf 6</p>
+            <p class="www bbb">Paragraf 6</p>
             <h2 class="h2-end">Header2</h2>
         </div>
     </div>
     <p>Paragraf 10</p>
     <p>Paragraf 8</p>
     <p>Paragraf 9</p>
+    <ol>
+        <li class="www">Вишня</li>
+        <li class="www bbb">Клубника</li>
+        <li>Ананас</li>
+        <li>Груша</li>
+        <li class="www">Банан</li>
+    </ol>
 </body>
 
 <script>
-    // $('#test > :not(p)')
-
-    //42. Найдите все абзацы <p>, у которых непосредственный родитель не <div> и оберните их в <div class="www">.
-    // $(':not(div) > p').wrap('<div class="www"></div>');
-
-    //43. Найдите все абзацы <p>. Удалите их родителя (сделайте ему unwrap), если этот родитель не <div> с классом .www. Затем для те абзацы, у которых был удален родитель, оберните в <div> с классом .zzz.
-    //$(':not(div.www) > p').unwrap().wrap('<div class="www"></div>');
-
-    //44. Найдите все элементы из #test с классом .www, но не заголовки (не h1-h6). Удалите их родителя (сделайте ему unwrap), если этот родитель не #test. Затем оберните каждый элемент в <div>.
-    // $('#test > .www:not(:header)').unwrap($(':not(#test)')).wrap('<div></div>');
-
-    //45. Найдите всех родителей элемента из #test и создайте массив из CSS классов этих родителей.
-    var $arr_cls = [];
-    $('#test>:parent').each(function () {
-        $arr_cls.push($(this).attr('class'));
-    });
-    console.log($arr_cls);
+    //55. Получите все <li> на странице. Четные из полученных сделайте пустыми, а нечетные удалите.
+    $('li:even').empty();
+    $('li:odd').remove();
 </script>
 
 </html>
