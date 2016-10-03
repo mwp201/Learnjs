@@ -17,15 +17,20 @@
             <p class="www">Paragraf 1</p>
             <p>Paragraf 7</p>
         </div>
+        <div class="ss3qqq vvu yyy">
+            <h1 class="h1-start">Header1</h1>
+            <p class="www">Paragraf 1</p>
+            <p>Paragraf 7</p>
+        </div>
         <div id="text" class="aaa">
-            <p>Paragraf 2</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet modi sunt consequuntur pariatur accusamus similique hic, sed ipsam. Laboriosam vitae et facilis id, expedita suscipit odit libero? Ullam, facilis, non.</p>
             <h2 class="h2-start">Header2</h2>
             <p>Paragraf 7</p>
             <p>Paragraf 11</p>
         </div>
         <div class="zzz">
-            <p class="www">Paragraf 3</p>
-            <p class="www">Paragraf 4</p>
+            <p class="www"><b>Paragraf 3 bold</b></p>
+            <p class="www"><i>Paragraf 4 iiii</i></p>
             <p class="www">Paragraf 5</p>
             <p class="www bbb">Paragraf 6</p>
             <h2 class="h2-end">Header2</h2>
@@ -44,9 +49,31 @@
 </body>
 
 <script>
-    //55. Получите все <li> на странице. Четные из полученных сделайте пустыми, а нечетные удалите.
-    $('li:even').empty();
-    $('li:odd').remove();
+    //62. Найдите все теги <div>, у которых в атрибуте class ровно 3 класса.
+    //var $arr = [];
+    // var $res = [];
+    $('div').each(function () {
+        var $str = $(this).attr('class');
+        if ($str !== undefined) {
+            var result = [];
+            var arr = $str.split(',');
+            alert(arr);
+            arr.forEach(function (item, i) {
+                if (i % 2 == 0) {
+                    item = item.toUpperCase();
+                    arr.splice(i, 1, item);
+                    result = arr.slice(0).join('');
+                }
+            })
+            return result;
+
+            alert($str.length);
+        }
+    });
+
+
+
+    //console.log($arr);
 </script>
 
 </html>
