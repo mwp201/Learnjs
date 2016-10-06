@@ -22,7 +22,7 @@
             <p class="www">Paragraf 1</p>
             <p>Paragraf 7</p>
         </div>
-        <div id="text" class="aaa">
+        <div id="text" class="www">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet modi sunt consequuntur pariatur accusamus similique hic, sed ipsam. Laboriosam vitae et facilis id, expedita suscipit odit libero? Ullam, facilis, non.</p>
             <h2 class="h2-start">Header2</h2>
             <p>Paragraf 7</p>
@@ -54,26 +54,20 @@
     // var $res = [];
     $('div').each(function () {
         var $str = $(this).attr('class');
+
         if ($str !== undefined) {
-            var result = [];
-            var arr = $str.split(',');
-            alert(arr);
-            arr.forEach(function (item, i) {
-                if (i % 2 == 0) {
-                    item = item.toUpperCase();
-                    arr.splice(i, 1, item);
-                    result = arr.slice(0).join('');
-                }
-            })
-            return result;
+            var $new_str = $str.replace(' ', '');
+            $new_str = $new_str.replace(' ', '');
+            console.log($str.length + ' ' + $new_str.length);
+            if ($str.length - $new_str.length == 2) {
+                console.log($str);
+                return $str;
 
-            alert($str.length);
+            }
+
         }
+
     });
-
-
-
-    //console.log($arr);
 </script>
 
 </html>
