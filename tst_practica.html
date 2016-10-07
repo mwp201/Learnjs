@@ -17,18 +17,18 @@
             <p class="www">Paragraf 1</p>
             <p>Paragraf 7</p>
         </div>
-        <div class="ss3qqq vvu yyy">
+        <div class="ss3qqq vvu">
             <h1 class="h1-start">Header1</h1>
             <p class="www">Paragraf 1</p>
             <p>Paragraf 7</p>
         </div>
-        <div id="text" class="www">
+        <div class="www">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet modi sunt consequuntur pariatur accusamus similique hic, sed ipsam. Laboriosam vitae et facilis id, expedita suscipit odit libero? Ullam, facilis, non.</p>
             <h2 class="h2-start">Header2</h2>
             <p>Paragraf 7</p>
             <p>Paragraf 11</p>
         </div>
-        <div class="zzz">
+        <div class="zzz gg hj g">
             <p class="www"><b>Paragraf 3 bold</b></p>
             <p class="www"><i>Paragraf 4 iiii</i></p>
             <p class="www">Paragraf 5</p>
@@ -46,28 +46,32 @@
         <li>Груша</li>
         <li class="www">Банан</li>
     </ol>
+    <input type="text" name="" id="t1">
+    <input type="text" name="" id="t2">
+    <input type="text" name="" id="t3">
+    <input type="text" name="" id="t4">
+    <input type="text" name="" id="t5">
+    <input type="text" name="" id="t6">
 </body>
 
 <script>
-    //62. Найдите все теги <div>, у которых в атрибуте class ровно 3 класса.
-    //var $arr = [];
-    // var $res = [];
-    $('div').each(function () {
-        var $str = $(this).attr('class');
+    //65. Даны текстовые инпуты. Первому поставьте текст 1, через секунду второму поставьте текст 2, еще через секунду третьему текст 3 и так далее.
 
-        if ($str !== undefined) {
-            var $new_str = $str.replace(' ', '');
-            $new_str = $new_str.replace(' ', '');
-            console.log($str.length + ' ' + $new_str.length);
-            if ($str.length - $new_str.length == 2) {
-                console.log($str);
-                return $str;
-
+    // $('input[type=text]').each(function () {
+    var timer = setTimeout(function f1() {
+        $('input[type=text]').each(function () {
+            if ($('input[type=text]').attr('value') == undefined) {
+                $('input[type=text]').attr('value', 1);
             }
+            var $cur_value = $('input[type=text]').attr('value');
+            $('input[type=text]').next().attr('value', +$cur_value + 1)
+        })
+    }, 2000);
+    // 
 
-        }
 
-    });
+
+    //alert($('input[type=text]').attr('value'));
 </script>
 
 </html>
