@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Изучаю JS</title>
+</head>
+
+
+<script>
+ 
+   function makeBuffer() {
+       function buffer() {
+           return buffer.currentWord++;
+       };
+       buffer.currentWord = 4;
+       return buffer;
+   }
+    
+    var buffer = makeBuffer();
+    buffer('A');
+    buffer('B');
+    buffer('C');
+    alert(buffer());
+</script>
+
+
+
+</html>

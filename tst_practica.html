@@ -45,33 +45,32 @@
         <li>Ананас</li>
         <li>Груша</li>
         <li class="www">Банан</li>
+        <li class="www">Вишня</li>
+        <li class="www bbb">Клубника</li>
+        <li>Ананас</li>
+        <li>Груша</li>
+        <li class="www">Банан</li>
+        <li class="www">Вишня</li>
+        <li class="www bbb">Клубника</li>
+        <li>Ананас</li>
+        <li>Груша</li>
+        <li class="www">Банан</li>
     </ol>
-    <input type="text" name="" id="t1">
-    <input type="text" name="" id="t2">
-    <input type="text" name="" id="t3">
-    <input type="text" name="" id="t4">
-    <input type="text" name="" id="t5">
-    <input type="text" name="" id="t6">
+    <input type="text" name="" id="t1" value="11">
+    <input type="text" name="" id="t2" value="22">
+
+    <input type="checkbox" name="" id="" value="23">
+    <input class="www" type="checkbox" name="" id="">
+    <input class="www" type="checkbox" name="" id="" checked>
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="" checked>
+    <a href="http://site.ru"></a>
+
 </body>
 
 <script>
-    //65. Даны текстовые инпуты. Первому поставьте текст 1, через секунду второму поставьте текст 2, еще через секунду третьему текст 3 и так далее.
-
-    // $('input[type=text]').each(function () {
-    var timer = setTimeout(function f1() {
-        $('input[type=text]').each(function () {
-            if ($('input[type=text]').attr('value') == undefined) {
-                $('input[type=text]').attr('value', 1);
-            }
-            var $cur_value = $('input[type=text]').attr('value');
-            $('input[type=text]').next().attr('value', +$cur_value + 1)
-        })
-    }, 2000);
-    // 
-
-
-
-    //alert($('input[type=text]').attr('value'));
+    //84. Дана ссылка. Наш сайт называется site.ru. Если атрибут href начинается на http:// и после него стоит не наш сайт, добавьте ссылке атрибут target="_blank".
+    $('a:not([href$="site.ru"])').attr('target', '_blank');
 </script>
 
 </html>

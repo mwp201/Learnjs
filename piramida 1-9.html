@@ -1,0 +1,53 @@
+<script>
+    /*    //var a = [];
+                                                                                                                                                                                                                                                                                                for(var i = 1; i <= 100; i++){
+                                                                                                                                                                                                                                                                                                    var a = i;
+                                                                                                                                                                                                                                                                                                    if(i % 3 == 0){
+                                                                                                                                                                                                                                                                                                        a = 'Fizz';
+                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                    if(i % 5 == 0 && a !== 'Fizz'){
+                                                                                                                                                                                                                                                                                                        a = 'Buzz';
+                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                    console.log(a);
+                                                                                                                                                                                                                                                                                                }*/
+    //первое задание 
+    /*
+    for (var i = 1; i <= 100; i++) {
+        console.log(i);
+    }*/
+
+    //второе задание
+    /*
+    var arr = [1, 2, 6, 15, 28, 0, 33, 2, 8, 10]
+    arr.forEach(function (item, i, arr) {
+        if (item > 0 && item < 10) {
+            console.log(item);
+        }
+    })*/
+    //третье задание
+    /*
+    var arr = [1, 2, 6, 15, 28, 0, 33, 2, 8, 10, 105]
+    var summ = 0
+    arr.forEach(function (item, i, arr) {
+        summ += item;
+    })
+    console.log(summ);*/
+    //четвертое задание
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        /*
+        arr.forEach(function (item, i, arr) {
+            var a = String(item);
+            for (var j = 0; j < i; j++) {
+                a += a;
+            }
+            console.log(i);
+        })*/
+    for (var i = 0; i < arr.length; i++) {
+        var a = String(arr[i]);
+        for (var j = 0; j < i; j++) {
+            var b = String(arr[i]);
+            a = a + b;
+        }
+        console.log(a);
+    }
+</script>
