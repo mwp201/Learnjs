@@ -56,21 +56,46 @@
         <li>Груша</li>
         <li class="www">Банан</li>
     </ol>
-    <input type="text" name="" id="t1" value="11">
+    <input type="text" name="" id="t1">
     <input type="text" name="" id="t2" value="22">
 
     <input type="checkbox" name="" id="" value="23">
     <input class="www" type="checkbox" name="" id="">
-    <input class="www" type="checkbox" name="" id="" checked>
+    <!--    <p>Paragraf20</p>-->
+    <input class="www" type="checkbox" name="" id="">
+    <!--    <p>Paragraf21</p>-->
+    <input type="checkbox" name="" id="" value="56">
+    <!--    <p>Paragraf22</p>-->
     <input type="checkbox" name="" id="">
-    <input type="checkbox" name="" id="" checked>
-    <a href="http://site.ru"></a>
+    <a href="http://site.ru">dfffffffffffd</a>
+    <select name="" id="sel">
+        <option>num</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>
+    <input type="radio" name="" id="" value="1">
+    <input type="radio" name="" id="" value="2">
+    <input type="radio" name="" id="" value="3">
+    <input type="radio" name="" id="" value="4">
+    <input type="radio" name="" id="" value="5">
+    <input type="radio" name="" id="" value="6">
 
 </body>
 
 <script>
-    //84. Дана ссылка. Наш сайт называется site.ru. Если атрибут href начинается на http:// и после него стоит не наш сайт, добавьте ссылке атрибут target="_blank".
-    $('a:not([href$="site.ru"])').attr('target', '_blank');
+    //81. Дан селект и радио кнопочки, количество радио равно количеству пунктов в селекте. Сделайте так, чтобы при выборе одной из радио кнопочек автоматически становилась отмеченной соответствующий пункт селекта (соответствие по номеру следования: первый пункт списка - первому радио и так далее).
+
+    $('#sel').click(function () {
+        // var $select_val = +$('#sel :selected').val() - 1;
+        //$('input[type=radio]:eq(' + $select_val + ')').attr('checked', 'true');
+    });
+
+
+    console.log($('input[type=radio]:checked').prop('value'));
 </script>
 
 </html>
