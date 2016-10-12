@@ -40,26 +40,23 @@
     <p>Paragraf 8</p>
     <p>Paragraf 9</p>
     <ol>
-        <li class="www">Вишня</li>
-        <li class="www bbb">Клубника</li>
+        <li class="stop">Клубника</li>
         <li>Ананас</li>
         <li>Груша</li>
-        <li class="www">Банан</li>
-        <li class="www">Вишня</li>
-        <li class="www bbb">Клубника</li>
-        <li>Ананас</li>
-        <li>Груша</li>
-        <li class="www">Банан</li>
-        <li class="www">Вишня</li>
-        <li class="www bbb">Клубника</li>
-        <li>Ананас</li>
-        <li>Груша</li>
-        <li class="www">Банан</li>
+        <li>Банан</li>
+        <li class="start">Вишня</li>
     </ol>
     <input type="text" name="" id="t1">
-    <input type="text" name="" id="t2" value="22">
+    <input type="text" name="" id="t2">
+    <input type="text" name="" id="t3">
+    <input type="text" name="" id="t4">
+    <input type="text" name="" id="t5">
+    <input type="text" name="" id="t6">
 
     <input type="checkbox" name="" id="" value="23">
+    <p value="45">Paragraf20</p>
+    <p value="46">Paragraf20</p>
+    <p value="47">Paragraf20</p>
     <input class="www" type="checkbox" name="" id="">
     <!--    <p>Paragraf20</p>-->
     <input class="www" type="checkbox" name="" id="">
@@ -67,35 +64,15 @@
     <input type="checkbox" name="" id="" value="56">
     <!--    <p>Paragraf22</p>-->
     <input type="checkbox" name="" id="">
-    <a href="http://site.ru">dfffffffffffd</a>
-    <select name="" id="sel">
-        <option>num</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-    </select>
-    <input type="radio" name="rb" id="" value="1">
-    <input type="radio" name="rb" id="" value="2">
-    <input type="radio" name="rb" id="" value="3">
-    <input type="radio" name="rb" id="" value="4">
-    <input type="radio" name="rb" id="" value="5">
-    <input type="radio" name="rb" id="" value="6">
+
+
 
 </body>
 
 <script>
-    //81. Дан селект и радио кнопочки, количество радио равно количеству пунктов в селекте. Сделайте так, чтобы при выборе одной из радио кнопочек автоматически становилась отмеченной соответствующий пункт селекта (соответствие по номеру следования: первый пункт списка - первому радио и так далее).
-
-    $('input[type=radio]').click(function () {
-        var $select_val = $('input[type=radio]:checked').val();
-        $('#sel option').eq($select_val).prop('selected', 'true');
-    });
-
-
-    ;
+    //65. Даны текстовые инпуты. Первому поставьте текст 1, через секунду второму поставьте текст 2, еще через секунду третьему текст 3 и так далее.
+    $('')
+        //console.log();
 </script>
 
 </html>
