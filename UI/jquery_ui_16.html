@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>16 UI JQUERY</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+
+    <style>
+        #block1 {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            padding: 30px;
+            color: #fff;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2><a href="#" id="link">Наведи на меня</a></h2>
+    <div id="block1">
+        <ol>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+        </ol>
+
+    </div>
+
+</body>
+
+<script>
+    $('#link').mouseover(
+        function () {
+            $('#block1').effect('highlight', {
+                color: 'black'
+            }, 1000);
+        }
+    );
+</script>
+
+</html>

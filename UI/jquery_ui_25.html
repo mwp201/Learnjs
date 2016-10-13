@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>25 UI JQUERY</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+
+    <style>
+        #block1,
+        #block2 {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            padding: 30px;
+            color: #fff;
+            background-color: red;
+        }
+        
+        #block2 {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="block1">
+        <h2>1. Нажми  на меня</h2>
+        <ol>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+        </ol>
+    </div>
+    <div id="block2"></div>
+</body>
+
+<script>
+    $('#block1').click(
+        function () {
+            $(this).effect('transfer', {
+                to: '#block2'
+            }, 1000);
+
+        });
+</script>
+
+</html>

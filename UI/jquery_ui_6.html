@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>JQUERY UI</title>
-    <script src="libs/jquery-3.1.0.min.js"></script>
-    <script src="libs/ui/jquery-ui.js"></script>
+    <title>6 UI JQUERY</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
 
     <style>
         #block1 {
@@ -37,16 +37,12 @@
 </body>
 
 <script>
-    $(document).ready(function () {
-        $('#block1').click(
-            function () {
-                $(this).effect('blind', {
-                    direction: 'horizontal'
-                }, 500);
-                return false;
-            }
-        )
-    });
+    $('#block1').click(
+        function () {
+            $(this).effect('clip', {
+                direction: 'horizontal'
+            }, 1000);
+        });
 </script>
 
 </html>

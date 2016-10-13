@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>4 UI JQUERY</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+
+    <style>
+        #block1 {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            padding: 30px;
+            color: #fff;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="block1">
+        <h2>1. Нажми  на меня</h2>
+        <ol>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+            <li>пункт</li>
+        </ol>
+
+    </div>
+
+</body>
+
+<script>
+    //bounce Выполняет заданное количество колебаний элемента.
+    //Параметры:direction — направление выполнения эффекта. Доступные значения: "up", "down", "left", "right". По умолчанию "up".
+    //mode — определяет сворачивать или разворачивать элемент. Доступные значения "hide" и "show". По умолчанию "hide".
+    //distance — размер колебаний. По умолчанию 20.
+    //times — количество колебаний. По умолчанию 5.
+    $('#block1').click(
+        function () {
+            $(this).effect('bounce', {
+                direction: 'right'
+            }, 1000);
+        });
+</script>
+
+</html>
