@@ -432,6 +432,16 @@
     });
 
     //65. Даны текстовые инпуты. Первому поставьте текст 1, через секунду второму поставьте текст 2, еще через секунду третьему текст 3 и так далее.
+    var $i = 0;
+    var $input = $('input[type=text]');
+    var $n_input = +$input.length;
+    var $timer_id = setInterval(function () {
+        $input.eq($i).attr('value', $i + 1);
+        $i++;
+        if ($i >= $n_input) {
+            clearInterval($timer_id);
+        }
+    }, 1000);
 
     //66. Даны два инпута. Сделайте так, чтобы каждые 3 секунды эти инпуты обменивались текстом.
     setInterval(function () {
