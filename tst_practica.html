@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <div id="test">
+    <!--   
+    <div>
         <div class="qqq">
             <h1 class="h1-start">Header1</h1>
             <p class="www">Paragraf 1</p>
@@ -27,18 +28,27 @@
             <h2 class="h2-start">Header2</h2>
             <p>Paragraf 7</p>
             <p>Paragraf 11</p>
-        </div>
-        <div class="zzz gg hj g">
-            <p class="www"><b>Paragraf 3 bold</b></p>
-            <p class="www"><i>Paragraf 4 iiii</i></p>
-            <p class="www">Paragraf 5</p>
-            <p class="www bbb">Paragraf 6</p>
-            <h2 class="h2-end">Header2</h2>
-        </div>
+        </div>-->
+
+    <div class="zzz gg hj g">
+        <p class="www"><b>Paragraf 3 bold</b></p>
+        <p class="www"><i>Paragraf 4 iiii</i></p>
+        <h3 class="h2-end">Header3</h3>
+        <h3 class="h2-end">Header3</h3>
+        <p class="www" id="test">Paragraf 5</p>
+        <h3 class="h2-end">Header43</h3>
+        <p class="www bbb">Paragraf 6</p>
+        <h2 class="h2-end">Header2</h2>
+        <p class="www bbb">Paragraf 8</p>
+        <p class="www bbb">Paragraf 10</p>
+        <p class="www bbb">Paragraf 16</p>
+    </div>
+    <!--   
     </div>
     <p>Paragraf 10</p>
     <p>Paragraf 8</p>
     <p>Paragraf 9</p>
+   
     <ol>
         <li class="stop">Клубника</li>
         <li>Ананас</li>
@@ -46,40 +56,38 @@
         <li>Банан</li>
         <li class="start">Вишня</li>
     </ol>
+     -->
+    <!--   
     <input type="text" name="" id="t1">
     <input type="text" name="" id="t2">
     <input type="text" name="" id="t3">
     <input type="text" name="" id="t4">
     <input type="text" name="" id="t5">
+     
 
     <input type="checkbox" name="" id="" value="23">
-    <p value="45">Paragraf20</p>
-    <p value="46">Paragraf20</p>
-    <p value="47">Paragraf20</p>
-    <input class="www" type="checkbox" name="" id="">
+    -->
+    <!--    <p value="45">Paragraf20</p>-->
+    <!--    <p value="46">Paragraf20</p>-->
+    <!--    <p value="47">Paragraf20</p>-->
+
+    <!--    <input class="www" type="checkbox" name="" id="" disabled>-->
     <!--    <p>Paragraf20</p>-->
-    <input class="www" type="checkbox" name="" id="">
+    <!--    <input class="www" type="checkbox" name="" id="">-->
     <!--    <p>Paragraf21</p>-->
-    <input type="checkbox" name="" id="" value="56">
+    <!--    <input type="checkbox" name="" id="" value="56">-->
     <!--    <p>Paragraf22</p>-->
-    <input type="checkbox" name="" id="">
+    <!--    <input type="checkbox" name="" id="" disabled>-->
 
 
 
 </body>
 
 <script>
-    //65. Даны текстовые инпуты. Первому поставьте текст 1, через секунду второму поставьте текст 2, еще через секунду третьему текст 3 и так далее.
-    var $i = 0;
-    var $input = $('input[type=text]');
-    var $n_input = +$input.length;
-    var $timer_id = setInterval(function () {
-        $input.eq($i).attr('value', $i + 1);
-        $i++;
-        if ($i >= $n_input) {
-            clearInterval($timer_id);
-        }
-    }, 1000);
+    //35. Дан элемент #test. Поменяйте этот элемент местами с его непосредственным соседом снизу.
+    var $test = $('#test');
+    var $sosed = $test.next();
+    $test.insertAfter($sosed);
 </script>
 
 </html>
