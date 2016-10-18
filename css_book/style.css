@@ -1,0 +1,219 @@
+html {
+    font-size: 16px;
+}
+
+.btn {
+    padding: .3em .8em;
+    border: 1px solid rgba(0, 0, 0, .1);
+    background: #58a linear-gradient(hsla(0, 0%, 100%, .2), transparent);
+    border-radius: .2em;
+    box-shadow: 0 .05em .25em rgba(0, 0, 0, .5);
+    color: #fff;
+    text-shadow: 0 -.05em .05em rgba(0, 0, 0, .5);
+    font-size: 125%;
+    line-height: 1.5;
+}
+
+.cancel {
+    background-color: #c00;
+}
+
+.ok {
+    background-color: #6b0;
+}
+
+.bg {
+    width: 100%;
+    padding: 50px;
+    background: #cf0 linear-gradient(green 50%, greenyellow 50%);
+}
+
+
+/*полупрозрачная рамка*/
+
+.transparent-border {
+    width: 200px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 10px solid hsla(0, 0%, 100%, .5);
+    background-color: #fff;
+    background-clip: padding-box;
+}
+
+
+/*несколько рамок с помощью box-shadow*/
+
+.more-border {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 30px;
+    background: yellowgreen;
+    box-shadow: inset 0 0 0 5px #655, inset 0 0 0 10px red;
+}
+
+
+/*если нужно только две рамки, то можно применить border и outline*/
+
+.two-border {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 30px;
+    background: yellowgreen;
+    border: 10px solid #655;
+    outline: 15px solid red;
+}
+
+
+/*эффект прошитого края*/
+
+.edge {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 30px;
+    background: blue;
+    border-radius: 5px;
+    outline: 1px dashed #fff;
+    outline-offset: -5px;
+    /*именно это делает outline внутри элемента*/
+}
+
+
+/*контейнер, скругленный только изнутри, внешние углы рамки/контура которого
+все так же остаются прямыми*/
+
+.rect {
+    background: #655;
+    padding: .8em;
+    margin-bottom: 30px;
+}
+
+.rect > div {
+    background: tan;
+    border-radius: .8em;
+    padding: 1em;
+}
+
+
+/*можно сделать и так*/
+
+.rect-one {
+    background: #25f;
+    border-radius: .8em;
+    padding: 1em;
+    margin-bottom: 30px;
+    box-shadow: 0 0 0 .6em blue;
+    outline: .6em solid blue;
+}
+
+.horizontal-line {
+    height: 500px;
+    background: linear-gradient(#fb3 33%, #58a 0, #58a 66%, yellowgreen 0);
+    background-size: 100% 45px;
+}
+
+.vertical-line {
+    height: 500px;
+    background: linear-gradient(90deg, #fb3 50%, #58a 0);
+    background-size: 30px 100%;
+}
+
+.deg45 {
+    height: 500px;
+    background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+}
+
+.deg60 {
+    height: 500px;
+    background: repeating-linear-gradient(60deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+}
+
+.flex-elips {
+    width: 200px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #abc;
+}
+
+
+/*элемент параллелограмм*/
+
+.btn-parallelogramm {
+    position: relative;
+    width: 5em;
+    padding: .3em .8em;
+    color: #fff;
+    text-align: center;
+}
+
+.btn-parallelogramm:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #58a;
+    -webkit-transform: skew(-45deg);
+    -ms-transform: skew(-45deg);
+    -o-transform: skew(-45deg);
+    transform: skew(-45deg);
+}
+
+
+/*делаем ромб использовать с префиксом обязательно
+
+img {
+    -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}*/
+
+
+/*Таким образом, если мы хотим плавно раскрывать
+полное изображение при наведении указателя мыши, это можно реализовать
+таким способом:*/
+
+img {
+    -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    -webkit-transition: 1s -webkit-clip-path;
+    -o-transition: -o-clip-path;
+    transition: clip-path;
+}
+
+img:hover {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+
+/*обрезанные углы с 4 сторон*/
+
+.beveled-corners {
+    padding: 1em 1.2em;
+    max-width: 12em;
+    color: #fff;
+    font-size: 150%;
+    background-color: #58a;
+    background: linear-gradient(135deg, transparent 15px, #58a 0) top left, linear-gradient(-135deg, transparent 15px, #58a 0) top right, linear-gradient(-45deg, transparent 15px, #58a 0) bottom right, linear-gradient(45deg, transparent 15px, #58a 0) bottom left;
+    background-size: 51% 51%;
+    background-repeat: no-repeat;
+}
+
+
+/*По умолчанию background-position ссылается на поле забивки(padding); это для того, чтобы рамки
+не закрывали собой фоновые изображения. Следовательно, top left — это по умолчанию верхний
+левый внешний угол поля забивки. Однако, появилось новое свойство, позволяющее изменить данное поведение: background-origin. Его значение по умолчанию (вполне предсказуемо) равно padding-box. Если
+изменить его на content-box, то ключевые слова для обозначения стороны и угла, которые мы используем с background-position, будут ссылаться на край поля содержимого (по сути, это означает, что
+любые фоновые изображения будут сдвигаться относительно сторон/углов на величину забивки(padding)):
+padding: 10px;
+background: url("code-pirate.svg") no-repeat #58a
+ bottom right; или 100% 100% 
+background-origin: content-box;*/
+
+
+/*Решение с использованием calc()
+Допустим, мы хотим поместить фоновое изображение на расстоянии 10px от нижнего края и 20px от правого
+края. Однако если мыслить в терминах смещения относительно верхнего левого угла, то нам требуется смещение на 100% - 20px по горизонтали и на 100% - 10px по вертикали. К счастью, функция calc()  позволяет выполнять подобные вычисления и прекрасно поддерживает background-position:
+background: url("code-pirate.svg") no-repeat;
+background-position: calc(100% - 20px) calc(100% - 10px);*/
