@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DIALOG WINDOW EVENT</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../libs/ui/jquery-ui.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <a href="#" id="open-window">Показать окно</a>
+    <a href="#" id="close-window">Спрятать окно</a>
+    <div id="dialog" title="Пример простого диалогового окна">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quasi voluptatum velit at non hic, nostrum dolores qui, voluptates, libero sed nesciunt facilis consequatur debitis asperiores. Quod necessitatibus enim, repudiandae.</p>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#dialog").dialog({
+            autoOpen: false
+        });
+    });
+    $('#open-window').click(function () {
+        $("#dialog").dialog('open');
+    })
+    $('#close-window').click(function () {
+        $("#dialog").dialog('close');
+    })
+</script>
+
+</html>

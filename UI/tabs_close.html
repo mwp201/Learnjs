@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TABS 3</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../libs/ui/jquery-ui.css">
+    <style>
+        #tabs {
+            width: 500px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Tab 1</a></li>
+            <li><a href="#tabs-2">Tab 2</a></li>
+            <li><a href="#tabs-3">Tab 3</a></li>
+        </ul>
+        <div id="tabs-1">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+        <div id="tabs-2">
+            <p>Consequuntur nemo quis, quaerat enim sed est iste deserunt fuga?</p>
+        </div>
+        <div id="tabs-3">
+            <p>Mollitia fugiat doloremque optio impedit dolorem, molestiae exercitationem suscipit quam asperiores rerum.</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#tabs").tabs({
+            collapsible: true
+        });
+    });
+</script>
+
+</html>

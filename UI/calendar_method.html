@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CALENDAR METHOD</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../libs/ui/jquery-ui.css">
+    <style>
+        #tabs {
+            width: 500px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="#" id="link1">Вывести текущую дату</a>
+        <br>
+        <a href="#" id="link2">Установить дату 10.12.2012</a>
+        <br>
+        <a href="#" id="link3">Открыть календарь</a>
+        <br>
+        <a href="#" id="link4">Закрыть календарь</a>
+        <br> Дата:
+        <input id="calendar" type="text">
+
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#calendar").datepicker({
+            dayNamesMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+            monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+            firstDay: 1
+        }).datepicker("option", "dateFormat", 'dd.mm.yy');
+    });
+    $('#link1').click(function () {
+        alert($("#calendar").datepicker('getDate'));
+    })
+    $('#link2').click(function () {
+        $("#calendar").datepicker('setDate', '10.12.2012');
+    })
+    $('#link3').click(function () {
+        $("#calendar").datepicker('show');
+    })
+    $('#link4').click(function () {
+        $("#calendar").datepicker('hide');
+    })
+</script>
+
+</html>

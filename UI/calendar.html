@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CALENDAR RUS</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../libs/ui/jquery-ui.css">
+    <style>
+        #tabs {
+            width: 500px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Дата:
+        <input id="calendar" type="text">
+
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#calendar").datepicker({
+            dayNamesMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+            monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+            firstDay: 1
+        }).datepicker("option", "dateFormat", 'dd.mm.yy');
+    });
+</script>
+
+</html>
