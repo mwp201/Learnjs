@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DRAG HANDLER</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../libs/ui/jquery-ui.css">
+    <style>
+        #container {
+            width: 500px;
+            margin: 30px auto;
+        }
+        
+        .inner {
+            width: 300px;
+            margin: 30px;
+            padding: 10px;
+            background-color: orange;
+            border: 1px solid #000;
+        }
+        
+        h1 {
+            background-color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="inner" id="drag1">
+            <h1>Тяни за меня</h1>
+            <p>Element 1</p>
+        </div>
+        <div class="inner" id="drag2">
+            <h1>Не тяни за меня</h1>
+            <p>Element 2</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#drag1").draggable({
+                handle: "h1"
+            }),
+            $("#drag2").draggable({
+                cancel: "h1"
+            });
+    });
+</script>
+
+</html>

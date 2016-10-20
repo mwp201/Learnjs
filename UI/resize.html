@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>RESIZE</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../libs/ui/jquery-ui.css">
+    <style>
+        #resize {
+            width: 300px;
+            margin-top: 30px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ui-widget-content" id="resize">
+        <h3 class="ui-widget-header">Resizable</h3>
+        <p>
+            Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+        </p>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $('#resize').resizable();
+    });
+</script>
+
+</html>

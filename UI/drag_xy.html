@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DRAG X Y PARRENT</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../libs/ui/jquery-ui.css">
+    <style>
+        #container {
+            width: 500px;
+            margin: 30px auto;
+        }
+        
+        .inner {
+            width: 100px;
+            height: 50px;
+            margin: 30px;
+            padding: 10px;
+            background-color: orange;
+        }
+        
+        .inner:last-child {
+            margin: 0;
+        }
+        
+        #parrent {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="inner" id="drag_y">Only Y
+        </div>
+        <div class="inner" id="drag_x" class="ui-widget-header">Only X
+        </div>
+        <div id="parrent">
+            <div class="inner" id="only_parrent">Only inside parrent</div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $("#drag_y").draggable({
+                axis: "y"
+            }),
+            $("#drag_x").draggable({
+                axis: "x"
+            }),
+            $("#only_parrent").draggable({
+                containment: "#parrent",
+                scroll: false
+            });
+    });
+</script>
+
+</html>

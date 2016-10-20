@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DRAG PARAMETR</title>
+    <script src="../libs/jquery-3.1.0.min.js"></script>
+    <script src="../libs/ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../libs/ui/jquery-ui.css">
+    <style>
+        #container {
+            width: 500px;
+            margin: 30px auto;
+        }
+        
+        #drag {
+            width: 250px;
+            /*            height: 100px;*/
+            margin: 30px;
+            padding: 10px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="drag" class="ui-widget-header">
+            <h3 class="ui-state-active">Перетаскиваемый элемент</h3> start
+            <p id="start"></p>
+            drag
+            <p id="n_drag"></p>
+            stop
+            <p id="stop"></p>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        var counts = [0, 0, 0];
+
+        $("#drag").draggable({
+            start: function () {
+                counts[0]++;
+                $("#start").text(counts[0]);
+            },
+            drag: function () {
+                counts[1]++;
+                $("#n_drag").text(counts[1]);
+            },
+            stop: function () {
+                counts[2]++;
+                $("#stop").text(counts[2]);
+            }
+        });
+
+    });
+</script>
+
+</html>
